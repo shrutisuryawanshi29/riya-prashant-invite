@@ -4,6 +4,7 @@ export const wedding = {
   grandparents: 'Smt. and Late Shri Venkatsa Ramchandrasa Kalburgi',
   invocations: ['॥ Shree Ganeshay Namah ॥', '॥ Shree Tulja Bhavani Prasanna ॥'],
   story: 'From the City of Dreams to the City of Oranges, with a little California in between — forever begins in Nagpur.',
+  muhuratTimestamp: '2026-12-03T10:15:00+05:30',
   invitation: 'We joyfully invite you to celebrate our wedding.',
   closing: 'Your presence and blessings will make our celebrations truly special.',
   events: [
