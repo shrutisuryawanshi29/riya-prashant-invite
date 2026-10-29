@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
-import { ArrowDown, ArrowUpRight, MapPin } from 'lucide-react';
+import { ArrowUpRight, MapPin } from 'lucide-react';
 import { wedding as w } from './data';
 import './style.css';
 import { HennaMedallion } from './components/Ornaments';
 import { EventEmblem } from './components/RoyalDetails';
 import { WeddingCountdown } from './components/WeddingCountdown';
-import { HeroSparkles } from './components/HeroSparkles';
+import { MoonlitHeroSection } from './sections/MoonlitHeroSection';
 import { BackToTop, CalendarControls, ShareInvitation } from './components/GuestControls';
 import { RoyalSectionTransition } from './components/RoyalSectionTransition';
 
@@ -51,7 +51,7 @@ useEffect(() => {
 return <>
 <div className="petal-layer" aria-hidden="true">{Array.from({length: 8}, (_, index) => <span className="petal" key={index}/>)}</div>
 <main>
-<section id="home" className="hero hero-illustrated"><div className="royal-invitation"><HeroSparkles/><div className="royal-ganesha" aria-hidden="true"></div><div className="royal-sacred">{w.invocations.map(x=><div key={x}>{x}</div>)}</div><img className="royal-portrait" src="/images/royal-portrait-optimized.webp" alt="Illustration of Riya and Prashant together" width="1122" height="1402" fetchPriority="high"/><div className="royal-copy"><p className="royal-families">Together with their families</p><p className="royal-wedding-of">The wedding of</p><h1><span>{w.couple.bride}</span><em>&</em><span>{w.couple.groom}</span></h1><Flourish/><p className="royal-date">3 December 2026</p><p className="royal-place">Nagpur</p><p className="royal-message">{w.invitation}</p><a className="royal-explore" href="#invitation">Explore our celebrations <ArrowDown size={14}/></a></div></div></section>
+<MoonlitHeroSection/>
 <div className="palace-continuation"><nav className="invitation-nav" aria-label="Main navigation"><a href="#invitation">Invitation</a><a href="#celebrations">Celebrations</a><a href="#venues">Venues</a></nav>
 <section id="invitation" className="invitation section-pad"><div className="invitation-sheet countdown-invitation"><p className="courtyard-invocations">{w.invocations[0]}<br/>{w.invocations[1]}</p><Kicker>A moment we have been waiting for</Kicker><h2>Until Forever Begins</h2><WeddingCountdown/><p className="countdown-wedding-date">3 December 2026 <span>·</span> 10:15 AM IST</p><p className="countdown-couple">{w.couple.bride} <span>&</span> {w.couple.groom}</p><Flourish/><div className="desktop-family"><FamilyInvitation/></div><div className="mobile-invitation"><p className="family-preview">With divine blessings and the love of our families, we joyfully invite you to celebrate our wedding.</p><div className="mobile-family-invitation"><FamilyInvitation/></div></div></div></section></div>
 
