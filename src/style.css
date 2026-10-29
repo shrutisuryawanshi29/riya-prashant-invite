@@ -139,15 +139,15 @@
  .petal:nth-child(1){--petal-x:6%;--petal-size:8px;--petal-color:#c68c90;--petal-duration:18s;--petal-delay:-3s}
  .petal:nth-child(2){--petal-x:20%;--petal-size:7px;--petal-color:#d9ada8;--petal-duration:22s;--petal-delay:-14s}
  .petal:nth-child(3){--petal-x:34%;--petal-size:6px;--petal-color:#bd8990;--petal-duration:20s;--petal-delay:-8s}
- .petal:nth-child(4){--petal-x:49%;--petal-size:7px;--petal-color:#d5b887;--petal-duration:24s;--petal-delay:-17s}
+ .petal:nth-child(4){--petal-x:49%;--petal-size:7px;--petal-color:#d5b887;--petal-duration:22s;--petal-delay:-17s}
  .petal:nth-child(5){--petal-x:65%;--petal-size:8px;--petal-color:#ce9ba1;--petal-duration:19s;--petal-delay:-10s}
- .petal:nth-child(6){--petal-x:80%;--petal-size:6px;--petal-color:#e2bbb0;--petal-duration:23s;--petal-delay:-5s}
+ .petal:nth-child(6){--petal-x:80%;--petal-size:6px;--petal-color:#e2bbb0;--petal-duration:21s;--petal-delay:-5s}
  .petal:nth-child(7){--petal-x:94%;--petal-size:7px;--petal-color:#bd8791;--petal-duration:21s;--petal-delay:-15s}
  .venues .section-heading .kicker:before,.venues .section-heading .kicker:after{content:'❧';display:inline-block;color:#b18a55;font:16px 'Cormorant Garamond',serif;margin:0 9px}
  .venues .section-heading .kicker:after{transform:scaleX(-1)}
  .invitation-disclosure summary:before{content:'✧';font:16px 'Cormorant Garamond',serif;color:#ae8853}
 }
-@keyframes petal-fall{0%{transform:translate3d(0,-20px,0) rotate(0deg)}50%{transform:translate3d(15px,50vh,0) rotate(125deg)}100%{transform:translate3d(-8px,calc(100vh + 30px),0) rotate(250deg)}}
+@keyframes petal-fall{0%{transform:translate3d(0,-20px,0) rotate(0deg)}50%{transform:translate3d(15px,50vh,0) rotate(65deg)}100%{transform:translate3d(-8px,calc(100vh + 30px),0) rotate(135deg)}}
 @media(prefers-reduced-motion:reduce){.petal-layer{display:none!important}}
 @media(max-width:1023px){
  .petal{opacity:.62;width:calc(var(--petal-size) * 1.55);height:calc(var(--petal-size) * 1.12);border-radius:85% 10% 85% 12%;box-shadow:inset -1px -1px 0 #78293c25}
@@ -158,16 +158,17 @@
  .petal:nth-child(12){--petal-x:89%;--petal-size:8px;--petal-color:#c57183;--petal-duration:21s;--petal-delay:-18s}
 }
 
-/* Phase 10: one-time motion, with visible content as the fallback. */
+/* Shared royal motion: visible content is the fallback. */
+:root{--motion-reveal-duration:1100ms;--motion-hero-duration:1700ms;--motion-stagger:150ms;--motion-sparkle-duration:5500ms;--motion-ornament-duration:8000ms;--motion-ease:cubic-bezier(.16,.65,.3,1)}
 .royal-transition{display:none}
 @media(max-width:1023px){.royal-transition{display:flex;align-items:center;justify-content:center;height:26px;background:#f7f0e3;color:#aa8550;pointer-events:none}.royal-transition svg{width:132px;height:26px;overflow:visible}.royal-transition-dark{background:#56182c;color:#cfad75}.celebrations .section-heading:before{display:none}.invitation.section-pad{padding-bottom:16px}.celebrations.section-pad{padding-top:16px;padding-bottom:18px}.venues.section-pad{padding-top:19px;padding-bottom:24px}.royal-darbar .closing{padding-top:25px}}
 @media(prefers-reduced-motion:no-preference){
- .royal-sacred{animation:royal-fade .7s ease both}.hero-illustrated h1{animation:royal-rise .8s cubic-bezier(.2,.7,.2,1) .12s both}.royal-date,.royal-place{animation:royal-fade .75s ease .28s both}.royal-message{animation:royal-fade .75s ease .4s both}
- .motion-revealed:not(.royal-transition){animation:royal-rise .6s cubic-bezier(.2,.7,.2,1) both}.timeline-entry.motion-revealed{animation-duration:.55s}.timeline-entry:nth-child(2).motion-revealed,.timeline-entry:nth-child(5).motion-revealed{animation-delay:.06s}.timeline-entry:nth-child(3).motion-revealed{animation-delay:.12s}.closing-message.motion-revealed{animation-delay:.06s}.closing-frame .families.motion-revealed{animation-delay:.12s}.closing-names.motion-revealed{animation-delay:.18s}
+ .royal-sacred{animation:royal-fade var(--motion-hero-duration) var(--motion-ease) both}.hero-illustrated h1{animation:royal-rise var(--motion-hero-duration) var(--motion-ease) .1s both}.royal-date,.royal-place{animation:royal-fade var(--motion-hero-duration) var(--motion-ease) .2s both}.royal-message{animation:royal-fade var(--motion-hero-duration) var(--motion-ease) .3s both}
+ .motion-revealed:not(.royal-transition){animation:royal-rise var(--motion-reveal-duration) var(--motion-ease) both}.timeline-entry.motion-revealed{animation-duration:1200ms;animation-delay:var(--entry-delay,0ms)}.closing-message.motion-revealed{animation-delay:.06s}.closing-frame .families.motion-revealed{animation-delay:.12s}.closing-names.motion-revealed{animation-delay:.18s}
  .royal-transition.motion-revealed .transition-motif{animation:royal-fade .65s ease both}.royal-transition.motion-revealed .transition-line-left{transform-origin:56px 16px;animation:line-reveal .7s ease .12s both}.royal-transition.motion-revealed .transition-line-right{transform-origin:104px 16px;animation:line-reveal .7s ease .12s both}
  .invitation-disclosure[open] .countdown-family{animation:royal-rise .35s ease both}
 }
-@keyframes royal-rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@keyframes royal-rise{from{opacity:.45;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 @keyframes royal-fade{from{opacity:0}to{opacity:1}}
 @keyframes line-reveal{from{opacity:0;transform:scaleX(0)}to{opacity:1;transform:scaleX(1)}}
 @supports (interpolate-size:allow-keywords) and selector(details::details-content){@media(prefers-reduced-motion:no-preference){.invitation-disclosure{interpolate-size:allow-keywords}.invitation-disclosure::details-content{block-size:0;overflow:clip;transition:block-size .35s ease,content-visibility .35s allow-discrete}.invitation-disclosure[open]::details-content{block-size:auto}}}
@@ -196,6 +197,29 @@
 .share-invitation{display:flex;flex-direction:column;align-items:center;margin:0 auto 14px;gap:6px}.share-invitation button,.share-invitation a{display:inline-flex;align-items:center;gap:8px;justify-content:center;min-height:44px;padding:8px 14px;font:10px 'DM Sans',sans-serif;letter-spacing:.09em;color:#e4c492;background:none;border:1px solid #c6a15d55;cursor:pointer}.share-invitation button:disabled{opacity:.6;cursor:default}
 .back-to-top{position:fixed;right:12px;top:calc(12px + env(safe-area-inset-top));z-index:30;width:44px;height:44px;border:1px solid #c6a15d;border-radius:50%;background:#f7f0e3;color:#56182c;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px #30202615}
 button:focus-visible,summary:focus-visible{outline:2px solid #c6a15d;outline-offset:4px}
-@media(prefers-reduced-motion:no-preference){.kicker.motion-revealed{animation:label-reveal .55s ease both}.flourish.motion-revealed{animation:none}.flourish.motion-revealed>span{animation:line-reveal .7s ease both}.flourish.motion-revealed>span:first-child{transform-origin:right center}.flourish.motion-revealed>span:last-child{transform-origin:left center}.flourish.motion-revealed>svg{animation:royal-fade .65s ease both}.closing-names.motion-revealed{animation:royal-fade .7s ease both}}
-@keyframes label-reveal{from{opacity:0;transform:translateX(-10px)}to{opacity:1;transform:translateX(0)}}
+@media(prefers-reduced-motion:no-preference){.kicker.motion-revealed{animation:label-reveal 1000ms var(--motion-ease) both}.flourish.motion-revealed{animation:none}.flourish.motion-revealed>span{animation:line-reveal .7s ease both}.flourish.motion-revealed>span:first-child{transform-origin:right center}.flourish.motion-revealed>span:last-child{transform-origin:left center}.flourish.motion-revealed>svg{animation:royal-fade .65s ease both}.closing-names.motion-revealed{animation:royal-fade var(--motion-reveal-duration) var(--motion-ease) both}}
+@keyframes label-reveal{from{opacity:.45;transform:translateX(-8px)}to{opacity:1;transform:translateX(0)}}
 @media(prefers-reduced-motion:reduce){:root{scroll-behavior:auto}.flourish>span,.flourish>svg{animation:none!important}}
+
+/* Tiny ambient lights, positioned against the artwork rather than the viewport. */
+.hero-sparkles{position:absolute;inset:0;pointer-events:none;z-index:2}
+.hero-sparkle{position:absolute;width:clamp(3px,.5cqw,5px);height:clamp(3px,.5cqw,5px);border-radius:50%;background:#d5b573;box-shadow:0 0 3px #e1c39266;opacity:0;pointer-events:none}
+.hero-sparkle:nth-child(1){left:18%;top:62%;--sparkle-time:5.5s;--sparkle-delay:-1.2s}
+.hero-sparkle:nth-child(2){left:81%;top:68%;--sparkle-time:6.7s;--sparkle-delay:-3.5s}
+.hero-sparkle:nth-child(3){left:17%;top:77%;--sparkle-time:6.1s;--sparkle-delay:-4.6s;background:#e7d0a3}
+.hero-sparkle:nth-child(4){left:83%;top:58%;--sparkle-time:5.8s;--sparkle-delay:-.4s}
+.hero-sparkle:nth-child(5){left:10%;top:45%;--sparkle-time:7s;--sparkle-delay:-2.8s}
+.hero-sparkle:nth-child(6){left:90%;top:34%;--sparkle-time:6.4s;--sparkle-delay:-5.1s;background:#e7d0a3}
+.closing-names{position:relative}
+.closing-names:before{content:'';position:absolute;right:8%;top:45%;width:3px;height:3px;background:#d5b573;border-radius:50%;opacity:0;pointer-events:none}
+@media(prefers-reduced-motion:no-preference){
+ .hero-sparkle{animation:royal-glimmer var(--sparkle-time,var(--motion-sparkle-duration)) ease-in-out var(--sparkle-delay,0s) infinite}
+ .timeline-marker>svg{animation:ornament-breathe var(--motion-ornament-duration) ease-in-out infinite}
+ .timeline-entry:nth-child(2) .timeline-marker>svg{animation-delay:-1.6s}.timeline-entry:nth-child(3) .timeline-marker>svg{animation-delay:-3.2s}.timeline-entry:nth-child(4) .timeline-marker>svg{animation-delay:-4.8s}.timeline-entry:nth-child(5) .timeline-marker>svg{animation-delay:-6.4s}
+ .closing-frame .flourish>svg{animation:ornament-breathe 9s ease-in-out -2s infinite}
+ .closing-names:before{animation:royal-glimmer 6.5s ease-in-out -3s infinite}
+}
+@keyframes royal-glimmer{0%,100%{opacity:0;transform:scale(.85)}35%{opacity:.5;transform:scale(1)}60%{opacity:.65;transform:scale(1.12)}80%{opacity:.15;transform:scale(.95)}}
+@keyframes ornament-breathe{0%,100%{opacity:.74}50%{opacity:1}}
+[data-motion-paused] .petal,[data-motion-paused] .hero-sparkle,[data-motion-paused] .timeline-marker>svg,[data-motion-paused] .closing-frame .flourish>svg,[data-motion-paused] .closing-names:before{animation-play-state:paused!important}
+@media(prefers-reduced-motion:reduce){.hero-sparkles,.closing-names:before{display:none}.timeline-marker>svg,.closing-frame .flourish>svg{animation:none!important;opacity:1}}
