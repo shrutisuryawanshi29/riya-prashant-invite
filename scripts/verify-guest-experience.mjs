@@ -1,0 +1,31 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import { stripTypeScriptTypes } from 'node:module';
+const compile = source => 'data:text/javascript;base64,' + Buffer.from(stripTypeScriptTypes(source)).toString('base64');
+const data = compile(fs.readFileSync('src/data.ts','utf8'));
+const calendar = await import(compile(fs.readFileSync('src/utils/calendarUtils.ts','utf8').replace("'../data'", JSON.stringify(data))));
+const share = await import(compile(fs.readFileSync('src/utils/shareUtils.ts','utf8').replace('import.meta.env.VITE_SITE_URL', JSON.stringify('https://riya-prashant-invite.vercel.app/'))));
+assert.equal(calendar.utcStamp(calendar.calendarEvents[0].start),'20261203T033000Z');
+assert.equal(calendar.utcStamp(calendar.calendarEvents[1].start),'20261206T123000Z');
+for (const event of calendar.calendarEvents) {
+ const url = new URL(calendar.googleCalendarUrl(event));
+ assert.equal(url.searchParams.get('ctz'),'Asia/Kolkata');
+ assert.equal(url.searchParams.get('location'),event.location);
+ assert.equal(url.searchParams.get('dates'),`${calendar.utcStamp(event.start)}/${calendar.utcStamp(event.start)}`);
+ const ics = calendar.createICS(event); const unfolded = ics.replace(/\r\n /g,'');
+ assert.ok(unfolded.includes(`DTSTART:${calendar.utcStamp(event.start)}`));
+ assert.ok(!ics.includes('DTEND:'));
+ assert.ok(ics.endsWith('END:VCALENDAR\r\n'));
+ for(const line of ics.split('\r\n')) assert.ok(Buffer.byteLength(line)<=75);
+ assert.ok(unfolded.includes('End time has not been specified.'));
+ assert.ok(unfolded.includes('LOCATION:'));
+}
+assert.ok(calendar.createICS(calendar.calendarEvents[0]).replace(/\r\n /g,'').includes('Vivah Muhurat: 10:15 AM IST'));
+for (const value of ['http://localhost:5175/','https://localhost/','https://127.0.0.1/','https://192.168.1.2/','no-url']) assert.equal(share.publicSiteUrl(value),null);
+assert.equal(new URL(share.whatsappUrl(share.canonicalUrl)).searchParams.get('text'),`${share.invitationShareText} ${share.canonicalUrl}`);
+const escaped = calendar.createICS({...calendar.calendarEvents[0], title:'A, B; C\\D\nE'}).replace(/\r\n /g,'');
+assert.ok(escaped.includes('SUMMARY:A\\, B\\; C\\\\D\\nE'));
+const html=fs.readFileSync('dist/index.html','utf8');
+for(const value of ['og:url','og:image','og:image:width','og:image:height','twitter:card','https://riya-prashant-invite.vercel.app/images/social-preview.jpg']) assert.ok(html.includes(value));
+assert.ok(!html.includes('localhost'));
+console.log('Passed: IST/UTC calendar starts, Google Calendar values, ICS folding/escaping, unknown end handling, share encoding, public URL validation, static production metadata.');

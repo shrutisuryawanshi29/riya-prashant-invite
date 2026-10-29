@@ -172,3 +172,30 @@
 @keyframes line-reveal{from{opacity:0;transform:scaleX(0)}to{opacity:1;transform:scaleX(1)}}
 @supports (interpolate-size:allow-keywords) and selector(details::details-content){@media(prefers-reduced-motion:no-preference){.invitation-disclosure{interpolate-size:allow-keywords}.invitation-disclosure::details-content{block-size:0;overflow:clip;transition:block-size .35s ease,content-visibility .35s allow-discrete}.invitation-disclosure[open]::details-content{block-size:auto}}}
 @media(prefers-reduced-motion:reduce){.royal-sacred,.hero-illustrated h1,.royal-date,.royal-place,.royal-message,.motion-revealed,.royal-transition .transition-line,.royal-transition .transition-motif,.invitation-disclosure[open] .countdown-family{animation:none!important;transform:none;opacity:1}.invitation-disclosure::details-content{transition:none}}
+
+/* Matching illustrated mobile continuation; desktop and hero are untouched. */
+@media(max-width:1023px){
+ .palace-continuation{position:relative;isolation:isolate;background:#f7f0e3}
+ .palace-continuation:before{content:'';position:absolute;inset:0 0 auto;z-index:-1;width:100%;aspect-ratio:2/3;background:url('/images/palace-parchment-transition.webp') center top / 100% auto no-repeat;pointer-events:none;mask-image:linear-gradient(#000 0 80%,transparent 100%)}
+ .palace-continuation .invitation-nav{position:relative;display:flex;flex-wrap:nowrap;justify-content:center;gap:clamp(14px,4vw,28px);height:auto;padding:clamp(60px,16vw,105px) 18px 0;background:transparent;border:0}
+ .palace-continuation .invitation-nav a{display:inline-flex;align-items:center;min-height:44px;color:#56182c;font-size:10px;letter-spacing:.07em}
+ .palace-continuation .invitation.section-pad{background:transparent;padding:16px 24px 16px;min-height:0}
+ .palace-continuation .countdown-invitation{max-width:550px}
+ .palace-continuation .courtyard-invocations{margin-bottom:14px}
+ .palace-continuation .countdown-invitation h2{font-size:clamp(33px,8.5vw,42px);line-height:1.1;margin:10px 0 22px}
+ .palace-continuation .countdown-invitation .flourish{margin:20px auto}
+ .palace-continuation .family-preview{font-size:17px;line-height:1.45}
+ .palace-continuation .invitation-disclosure{margin-top:10px}
+}
+
+/* Discreet guest controls; existing artwork and content composition are retained. */
+.calendar-control{margin:4px auto 0;font:11px/1.5 'DM Sans',sans-serif;color:inherit;max-width:260px}
+.calendar-control summary{display:flex;align-items:center;justify-content:center;gap:7px;min-height:44px;cursor:pointer;list-style:none}
+.calendar-control summary::-webkit-details-marker{display:none}.calendar-control summary svg{margin:0;color:inherit}
+.calendar-options{display:flex;flex-direction:column;gap:2px}.calendar-options a,.calendar-options button{min-height:44px;display:flex;align-items:center;justify-content:center;gap:5px;font:inherit;color:inherit;background:none;border:0;cursor:pointer}.calendar-options span{font-size:10px}
+.share-invitation{display:flex;flex-direction:column;align-items:center;margin:0 auto 14px;gap:6px}.share-invitation button,.share-invitation a{display:inline-flex;align-items:center;gap:8px;justify-content:center;min-height:44px;padding:8px 14px;font:10px 'DM Sans',sans-serif;letter-spacing:.09em;color:#e4c492;background:none;border:1px solid #c6a15d55;cursor:pointer}.share-invitation button:disabled{opacity:.6;cursor:default}
+.back-to-top{position:fixed;right:12px;top:calc(12px + env(safe-area-inset-top));z-index:30;width:44px;height:44px;border:1px solid #c6a15d;border-radius:50%;background:#f7f0e3;color:#56182c;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px #30202615}
+button:focus-visible,summary:focus-visible{outline:2px solid #c6a15d;outline-offset:4px}
+@media(prefers-reduced-motion:no-preference){.kicker.motion-revealed{animation:label-reveal .55s ease both}.flourish.motion-revealed{animation:none}.flourish.motion-revealed>span{animation:line-reveal .7s ease both}.flourish.motion-revealed>span:first-child{transform-origin:right center}.flourish.motion-revealed>span:last-child{transform-origin:left center}.flourish.motion-revealed>svg{animation:royal-fade .65s ease both}.closing-names.motion-revealed{animation:royal-fade .7s ease both}}
+@keyframes label-reveal{from{opacity:0;transform:translateX(-10px)}to{opacity:1;transform:translateX(0)}}
+@media(prefers-reduced-motion:reduce){:root{scroll-behavior:auto}.flourish>span,.flourish>svg{animation:none!important}}
