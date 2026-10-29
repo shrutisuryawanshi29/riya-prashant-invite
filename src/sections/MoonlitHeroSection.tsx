@@ -18,7 +18,7 @@ export function MoonlitHeroSection() {
         <h1>{wedding.couple.bride} <span>&amp;</span> {wedding.couple.groom}</h1>
         <p className="moonlit-story">Some stories are written in the stars.</p>
         <p className="moonlit-date">3 December 2026 <span>·</span> Nagpur</p>
-        <a className="moonlit-action" href="#invitation">Explore Our Story <ArrowDown size={16}/></a>
+        <a className="moonlit-action" href="#story">Explore Our Story <ArrowDown size={16}/></a>
       </div>
     </div>
   </section>;

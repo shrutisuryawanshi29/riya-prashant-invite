@@ -6,6 +6,7 @@ import './style.css';
 import { HennaMedallion } from './components/Ornaments';
 import { EventEmblem } from './components/RoyalDetails';
 import { WeddingCountdown } from './components/WeddingCountdown';
+import { BadmintonStorySection } from './sections/BadmintonStorySection';
 import { MoonlitHeroSection } from './sections/MoonlitHeroSection';
 import { BackToTop, CalendarControls, ShareInvitation } from './components/GuestControls';
 import { RoyalSectionTransition } from './components/RoyalSectionTransition';
@@ -16,7 +17,7 @@ function FamilyInvitation(){return <div className="countdown-family"><p>With the
 function App(){
 useEffect(() => {
   const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
-  const targets = document.querySelectorAll<HTMLElement>('.countdown-invitation .kicker, .venues .kicker, .flourish, .countdown-invitation h2, .countdown-units, .countdown-complete, .section-heading, .timeline-entry, .venue, .closing-frame h2, .closing-message, .closing-frame .families, .closing-names, .royal-transition');
+  const targets = document.querySelectorAll<HTMLElement>('.story-reveal, .countdown-invitation .kicker, .venues .kicker, .flourish, .countdown-invitation h2, .countdown-units, .countdown-complete, .section-heading, .timeline-entry, .venue, .closing-frame h2, .closing-message, .closing-frame .families, .closing-names, .royal-transition');
   let observer: IntersectionObserver | undefined;
   function watch() {
     observer?.disconnect();
@@ -55,6 +56,7 @@ return <>
 <div className="palace-continuation"><nav className="invitation-nav" aria-label="Main navigation"><a href="#invitation">Invitation</a><a href="#celebrations">Celebrations</a><a href="#venues">Venues</a></nav>
 <section id="invitation" className="invitation section-pad"><div className="invitation-sheet countdown-invitation"><p className="courtyard-invocations">{w.invocations[0]}<br/>{w.invocations[1]}</p><Kicker>A moment we have been waiting for</Kicker><h2>Until Forever Begins</h2><WeddingCountdown/><p className="countdown-wedding-date">3 December 2026 <span>·</span> 10:15 AM IST</p><p className="countdown-couple">{w.couple.bride} <span>&</span> {w.couple.groom}</p><Flourish/><div className="desktop-family"><FamilyInvitation/></div><div className="mobile-invitation"><p className="family-preview">With divine blessings and the love of our families, we joyfully invite you to celebrate our wedding.</p><div className="mobile-family-invitation"><FamilyInvitation/></div></div></div></section></div>
 
+<BadmintonStorySection/>
 <RoyalSectionTransition/>
 <section id="celebrations" className="celebrations section-pad"><div className="section-heading"><h2>Our Wedding Celebrations</h2><p>Five cherished occasions, one beautiful beginning.</p><Flourish/></div><ol className="celebration-timeline">{w.events.map((e, i) => <li className={'timeline-entry' + (i === 3 ? ' timeline-wedding' : '')} key={e.name}><div className="timeline-marker" aria-hidden="true">{i === 0 ? <HennaMedallion/> : <EventEmblem type={i}/>}</div><div className="timeline-content"><p className="timeline-date">{e.date.replace(/^(\w+), (\w+) (\d+), (\d+)$/, '$1, $3 $2 $4')}</p><h3>{i === 4 ? 'Reception' : e.name}</h3>{e.tagline && <p className="timeline-tagline">{e.tagline}</p>}<p className="timeline-time">{e.time}</p>{'muhurat' in e && <p className="timeline-muhurat">{e.muhurat}</p>}{'extra' in e && <p className="timeline-extra">{e.extra}</p>}</div></li>)}</ol></section>
 
