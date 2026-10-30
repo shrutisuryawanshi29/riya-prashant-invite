@@ -32,6 +32,9 @@ function LittleThings() {
 
 export function StoryBook() {
   const [page, setPage] = useState<Page>(pageFromHash);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuArea = useRef<HTMLDivElement>(null);
+  const menuButton = useRef<HTMLButtonElement>(null);
   const [transition, setTransition] = useState<{from: Page; to: Page; reverse: boolean; scrollTop: number; id: number} | null>(null);
   const turning = transition !== null;
   const timeout = useRef<number | undefined>(undefined);
@@ -48,6 +51,14 @@ export function StoryBook() {
     stage.current?.querySelector<HTMLButtonElement>(page === 'cover' ? '.book-open' : '[aria-label="Previous page"]')?.focus({ preventScroll: true });
     restoreFocus.current = false;
   }, [page]);
+  useEffect(() => {
+    if (!menuOpen) return;
+    menuArea.current?.querySelector<HTMLButtonElement>('.chapter-menu-panel button')?.focus({preventScroll: true});
+    function dismiss(event: PointerEvent) { if (!menuArea.current?.contains(event.target as Node)) setMenuOpen(false); }
+    function escape(event: KeyboardEvent) { if (event.key === 'Escape') { setMenuOpen(false); menuButton.current?.focus({preventScroll: true}); } }
+    document.addEventListener('pointerdown', dismiss); document.addEventListener('keydown', escape);
+    return () => { document.removeEventListener('pointerdown', dismiss); document.removeEventListener('keydown', escape); };
+  }, [menuOpen]);
   useEffect(() => { const sync = () => { window.clearTimeout(timeout.current); transitionId.current++; outgoingSnapshot.current = null; turnLocked.current = false; restoreFocus.current = false; setTransition(null); setPage(pageFromHash()); }; window.addEventListener('popstate', sync); window.addEventListener('hashchange', sync); return () => { window.clearTimeout(timeout.current); window.removeEventListener('popstate', sync); window.removeEventListener('hashchange', sync); }; }, []);
   useLayoutEffect(() => {
     if (!transition || !frontSurface.current || !outgoingSnapshot.current) return;
@@ -64,6 +75,7 @@ export function StoryBook() {
   }
   function turn(next: Page) {
     if (turnLocked.current || turning || page === next || !next) return;
+    setMenuOpen(false);
     turnLocked.current = true;
     restoreFocus.current = true;
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -99,6 +111,10 @@ export function StoryBook() {
     <div className="book-index"><label htmlFor="chapter-index">Chapter index</label><select id="chapter-index" value={page} onChange={e => turn(e.target.value as Page)} disabled={turning}>{pages.map((p,i)=><option value={p} key={p}>{labels[i]}</option>)}</select></div>
     <div ref={stage} className="book-stage" onTouchStart={e => { if ((e.target as HTMLElement).closest('button,a,summary,select,input')) { touch.current = null; return; } touch.current = {x:e.touches[0].clientX,y:e.touches[0].clientY};}} onTouchEnd={swipeEnd} onTouchCancel={() => { touch.current = null; }}>
       <div className="book-spine" aria-hidden="true" />
+      <div className={"chapter-menu" + (basePage === "cover" ? " chapter-menu-cover" : "")} ref={menuArea}>
+        <button ref={menuButton} className="chapter-menu-trigger" type="button" aria-label="Chapter menu" aria-expanded={menuOpen} aria-controls="mobile-chapter-menu" disabled={turning} onClick={() => setMenuOpen(open => !open)}><span aria-hidden="true">☰</span></button>
+        {menuOpen && <nav className="chapter-menu-panel" id="mobile-chapter-menu" aria-label="Choose a chapter">{pages.map((item,index)=><button type="button" key={item} aria-current={item===page?'page':undefined} onClick={() => { if(item===page) { setMenuOpen(false); menuButton.current?.focus({preventScroll:true}); } else turn(item); }}>{labels[index]}</button>)}</nav>}
+      </div>
       <div className="book-page book-page-base" inert={turning} aria-hidden={turning ? true : undefined}>
         <div ref={scrollRegion} className={"book-page-scroll" + (basePage === "cover" ? " book-page-scroll-cover" : "")} tabIndex={basePage === "cover" ? undefined : 0} aria-label={basePage === "cover" ? undefined : "Chapter content"}>{content(basePage)}</div>
         {basePage !== 'cover' && <div className="book-controls"><button onClick={() => turn(pages[pages.indexOf(page)-1])} disabled={turning || page === 'cover'} aria-label="Previous page">←</button><span className="book-page-number"><small>{basePage === 'epilogue' ? 'Epilogue' : `Chapter ${pageNumber-1} of 7`}</small>{String(pageNumber).padStart(2,'0')} / 08</span><button onClick={() => turn(pages[pages.indexOf(page)+1])} disabled={turning || page === 'epilogue'} aria-label="Next page">→</button></div>}

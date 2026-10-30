@@ -651,3 +651,37 @@ button:focus-visible,summary:focus-visible{outline:2px solid #c6a15d;outline-off
 .book-little .little-music { top:89%; right:7%; }
 @media(min-width:768px) { .book-little h2 { font-size:54px; }.book-little .little-art { height:350px; } }
 .book-little .little-music { right:32%; top:88%; text-align:left; }
+
+/* Mobile reading view: the paper fills the usable viewport. */
+.chapter-menu { display:none; }
+html.storybook-document,html.storybook-document body { background:#33242d; }
+html.storybook-document body,html.storybook-document #root { min-height:100vh; min-height:100dvh; }
+html.storybook-document .storybook-preview { min-height:100vh; min-height:100dvh; background:#33242d; }
+@media(max-width:767px) {
+ .storybook { min-height:100vh; min-height:100dvh; padding:max(8px,env(safe-area-inset-top)) 12px max(8px,env(safe-area-inset-bottom)); }
+ .book-site-nav,.book-index { display:none; }
+ .book-stage { height:max(420px,calc(100dvh - max(8px,env(safe-area-inset-top)) - max(8px,env(safe-area-inset-bottom)))); }
+ .book-status { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+ .chapter-menu { display:block; position:absolute; z-index:20; top:6px; right:7px; }
+ .chapter-menu-trigger { display:flex; align-items:center; justify-content:center; width:44px; height:44px; padding:0; color:#653147; background:#f7ead9ec; border:1px solid #bd9d74; border-radius:50%; cursor:pointer; font:19px/1 sans-serif; }
+ .chapter-menu-trigger:focus-visible,.chapter-menu-panel button:focus-visible { outline:2px solid #91612e; outline-offset:2px; }
+ .chapter-menu-panel { position:absolute; top:49px; right:0; width:min(245px,calc(100vw - 60px)); max-height:min(65dvh,420px); overflow-y:auto; padding:8px; background:#f9eee0; border:1px solid #c2a27c; border-radius:4px; box-shadow:0 7px 22px #32151d42; }
+ .chapter-menu-panel button { display:block; width:100%; min-height:42px; padding:9px 12px; text-align:left; background:transparent; border:0; color:#56182c; font:500 14px/1.3 'DM Sans',sans-serif; cursor:pointer; }
+ .chapter-menu-panel button[aria-current='page'] { background:#ead8c9; font-weight:600; }
+ .chapter-menu-panel button:hover { background:#f0e1d2; }
+}
+@media(max-width:767px) {
+ .book-page-scroll:not(.book-page-scroll-cover) { border-top:50px solid #f7ead9; }
+ .chapter-menu-cover { right:auto; left:20px; }
+ .chapter-menu-cover .chapter-menu-panel { left:0; right:auto; }
+}
+
+/* Keep the three city images visible together in the taller mobile book. */
+@media(max-width:767px) {
+ .book-places .book-city-list { margin-top:12px; }
+ .book-places .book-city-list figure { margin-bottom:10px; }
+ .book-places .book-city-list figure:last-child { margin-bottom:0; }
+ .book-places .book-city-list img { height:clamp(88px,25vw,102px); }
+ .book-places .book-city-list h3 { margin-top:4px; font-size:22px; }
+ .book-places .book-city-list p { margin-top:1px; font-size:16px; line-height:1.2; }
+}
