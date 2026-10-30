@@ -675,13 +675,3 @@ html.storybook-document .storybook-preview { min-height:100vh; min-height:100dvh
  .chapter-menu-cover { right:auto; left:20px; }
  .chapter-menu-cover .chapter-menu-panel { left:0; right:auto; }
 }
-
-/* Keep the three city images visible together in the taller mobile book. */
-@media(max-width:767px) {
- .book-places .book-city-list { margin-top:12px; }
- .book-places .book-city-list figure { margin-bottom:10px; }
- .book-places .book-city-list figure:last-child { margin-bottom:0; }
- .book-places .book-city-list img { height:clamp(88px,25vw,102px); }
- .book-places .book-city-list h3 { margin-top:4px; font-size:22px; }
- .book-places .book-city-list p { margin-top:1px; font-size:16px; line-height:1.2; }
-}
