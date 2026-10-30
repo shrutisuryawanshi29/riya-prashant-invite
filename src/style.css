@@ -233,7 +233,7 @@ button:focus-visible,summary:focus-visible{outline:2px solid #c6a15d;outline-off
 .moonlit-layout{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:clamp(78px,20vh,160px) 20px 46px;gap:8px}
 .moonlit-portrait{width:min(76vw,350px);aspect-ratio:1122/1402;position:relative}.moonlit-portrait img{display:block;width:100%;height:100%;object-fit:contain;mask-image:linear-gradient(to bottom,#000 0%,#000 93%,transparent 100%)}
 .moonlit-copy{position:relative;width:100%;max-width:600px;text-shadow:0 2px 12px #170c18}.moonlit-eyebrow{font:500 10px 'DM Sans',sans-serif;letter-spacing:.22em;color:#e2c99e}.moonlit-copy h1{font:400 clamp(48px,12vw,72px)/1.1 'Great Vibes',cursive;color:#fff3e4;margin:15px 0 10px}.moonlit-copy h1 span{font:italic .55em 'Cormorant Garamond',serif;color:#e7c99b}.moonlit-story{font:italic 20px/1.35 'Cormorant Garamond',serif}.moonlit-date{font:500 11px 'DM Sans',sans-serif;letter-spacing:.15em;text-transform:uppercase;margin-top:18px;color:#f5dfc1}.moonlit-date span{color:#d8b678;margin:0 4px}.moonlit-action{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:48px;padding:0 18px;margin-top:22px;border:1px solid #e0c197;color:#fff3e4;font:500 10px 'DM Sans',sans-serif;letter-spacing:.13em;text-transform:uppercase}
-@media(min-width:1024px){.moonlit-hero{text-align:left;min-height:760px;min-height:100svh}.moonlit-background img{object-position:right center}.moonlit-shade{background:linear-gradient(90deg,rgba(24,10,23,.65),rgba(30,11,24,.2) 54%,rgba(25,10,22,.12)),linear-gradient(0deg,rgba(25,10,22,.45),transparent 40%)}.moonlit-nav{justify-content:flex-end;padding:18px 6%}.moonlit-layout{width:min(1200px,100%);margin:auto;flex-direction:row-reverse;justify-content:space-between;padding:50px 6% 70px;gap:30px}.moonlit-portrait{width:min(43vw,450px);flex:none}.moonlit-copy{width:50%}.moonlit-copy h1{font-size:clamp(68px,7vw,100px)}.moonlit-story{font-size:25px}.moonlit-action{margin-top:30px}}
+@media(min-width:1024px){.moonlit-hero{text-align:left;min-height:760px;min-height:100svh}.moonlit-background img{object-position:right top}.moonlit-shade{background:linear-gradient(90deg,rgba(24,10,23,.65),rgba(30,11,24,.2) 54%,rgba(25,10,22,.12)),linear-gradient(0deg,rgba(25,10,22,.45),transparent 40%)}.moonlit-nav{justify-content:flex-end;padding:18px 6%}.moonlit-layout{width:min(1200px,100%);margin:auto;flex-direction:row-reverse;justify-content:space-between;padding:50px 6% 70px;gap:30px}.moonlit-portrait{width:min(43vw,450px);flex:none}.moonlit-copy{width:50%}.moonlit-copy h1{font-size:clamp(68px,7vw,100px)}.moonlit-story{font-size:25px}.moonlit-action{margin-top:30px}}
 @media(max-height:750px) and (max-width:767px){.moonlit-layout{padding-top:40px}.moonlit-portrait{width:min(62vw,280px)}}
 
 /* Our story: editorial watercolor chapter. */
@@ -256,3 +256,398 @@ button:focus-visible,summary:focus-visible{outline:2px solid #c6a15d;outline-off
 .story-callout-music{left:63%;top:88%;max-width:33%}
 .story-callout-moon{left:48%;top:11%;max-width:29%}
 @media(min-width:1024px){.badminton-story{padding:70px 24px 55px}.story-scene{position:relative;display:grid;align-items:center}.story-art{grid-area:1/1;width:100%;max-width:none;aspect-ratio:1738/905;margin:0;overflow:visible}.story-art img{object-fit:contain}.story-copy{grid-area:1/1;z-index:1;width:38%;max-width:410px;margin:0 0 0 3%;padding:0;text-align:left}.story-copy h2{font-size:clamp(43px,4vw,58px);margin:14px 0 20px}.story-intro{margin:0;font-size:20px}.story-callouts{font-size:clamp(16px,1.3vw,19px)}.story-callout-badminton{left:40%;top:71%;max-width:15%}.story-callout-chai{left:61%;top:72%;max-width:15%}.story-callout-music{left:80%;top:83%;max-width:17%}.story-callout-moon{left:74%;top:15%;max-width:17%}}
+
+
+/* Three symbolic places, illustrated with the supplied watercolor triptych. */
+.three-places{background:#f7f0e3;color:#302026;padding:54px 22px 60px;overflow:hidden}
+.places-heading{text-align:center;max-width:650px;margin:0 auto 38px}
+.places-kicker{font:600 10px/1.5 'DM Sans',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#88612f}
+.places-heading h2{font:500 clamp(29px,7.6vw,48px)/1.08 'Cormorant Garamond',serif;color:#56182c;margin:12px auto}
+.places-heading h2 em{font-weight:400;white-space:nowrap}
+.places-heading>p:last-child{font:italic 18px/1.4 'Cormorant Garamond',serif;color:#68484a}
+.places-journey{position:relative;max-width:460px;margin:auto}
+.places-list{list-style:none;padding:0;margin:0;display:grid;gap:16px}
+.places-chapter{position:relative;display:grid;grid-template-columns:50% 1fr;gap:9%;align-items:center;min-width:0}
+.places-chapter:before{content:'';position:absolute;left:54.5%;top:50%;width:7px;height:7px;background:#b78e54;border:2px solid #f7f0e3;border-radius:50%;transform:translate(-50%,-50%);z-index:1}
+.places-scene{position:relative;height:clamp(150px,42vw,180px);overflow:hidden;background:#ead7c7}
+.places-scene img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 49%}.places-scene-nagpur img{object-position:center 44%}.places-scene-california img{object-position:center 46%}
+.places-copy{min-width:0;text-align:left}
+.places-number{font:500 9px/1 'DM Sans',sans-serif;letter-spacing:.15em;color:#98703a}
+.places-copy h3{font:500 clamp(21px,5.5vw,29px)/1.08 'Cormorant Garamond',serif;color:#56182c;letter-spacing:.04em;text-transform:uppercase;margin:0 0 5px;overflow-wrap:anywhere}
+.places-copy p{font:italic 16px/1.3 'Cormorant Garamond',serif;color:#6d4849}
+.places-route{position:absolute;pointer-events:none;overflow:visible;z-index:0;fill:none;stroke:#bc985f;stroke-width:1;vector-effect:non-scaling-stroke}
+.places-route-mobile{left:54.5%;top:calc(clamp(150px,42vw,180px) / 2);width:2px;height:calc(100% - clamp(150px,42vw,180px));transform:translateX(-50%)}
+.places-route-desktop{display:none}
+@media(min-width:768px){.places-scene-california img{object-position:center 38%}.three-places{padding:76px 36px 78px}.places-heading{margin-bottom:48px}.places-journey{max-width:1080px}.places-list{grid-template-columns:repeat(3,minmax(0,1fr));gap:32px}.places-chapter{display:block;text-align:center}.places-scene{height:clamp(150px,22vw,250px)}.places-copy{text-align:center;padding-top:36px}.places-copy h3{font-size:clamp(23px,2.7vw,34px)}.places-copy p{font-size:18px}.places-chapter:before{left:50%;top:auto;bottom:calc(100% - clamp(150px,22vw,250px) - 22px);width:8px;height:8px}.places-route-mobile{display:none}.places-route-desktop{display:block;left:16.67%;width:66.66%;height:18px;top:calc(clamp(150px,22vw,250px) + 12px);stroke-width:.22}}
+@media(prefers-reduced-motion:no-preference){.three-places.motion-revealed .places-route path{animation:places-route-draw 1.3s cubic-bezier(.2,.65,.3,1) both}}
+@keyframes places-route-draw{from{opacity:0}to{opacity:1}}
+@media(prefers-reduced-motion:reduce){.three-places .places-route path{animation:none}}
+
+
+/* A badminton journey: the photograph, words and atmosphere remain separate. */
+.rally-hero{position:relative;isolation:isolate;z-index:21;overflow:hidden;background:linear-gradient(160deg,#f1dfdf 0%,#ebccd0 42%,#f6e9db 100%);color:#56182c;min-height:100svh;display:flex;flex-direction:column;text-align:center}
+.rally-nav{position:relative;z-index:2;display:flex;justify-content:center;gap:clamp(18px,6vw,38px);padding:12px 16px}
+.rally-nav a{display:flex;align-items:center;min-height:44px;color:#56182c;font:600 10px 'DM Sans',sans-serif;letter-spacing:.12em;text-transform:uppercase}
+.rally-atmosphere{position:relative;flex:none;height:104px;margin:0 auto;width:min(100%,1040px);pointer-events:none}
+.rally-path{position:absolute;inset:0;width:100%;height:100%;overflow:visible}.rally-path-desktop{display:none}
+.rally-path-mask{stroke-dasharray:1;stroke-dashoffset:0}
+.rally-shuttle{opacity:0}
+.rally-moon{position:absolute;right:4%;top:14%;width:clamp(38px,11vw,56px);aspect-ratio:1;border-radius:50%;background:#f5dbaf;box-shadow:inset -4px -2px 0 #ddbd8b55}
+.rally-moon>span{position:absolute;inset:-14px;border-radius:50%;background:radial-gradient(circle,#f3d7a96b,transparent 70%)}
+.rally-star{position:absolute;width:3px;height:3px;background:#af8756;border-radius:50%;opacity:.45}.rally-star-one{left:18%;top:22%}.rally-star-two{left:59%;top:10%}.rally-star-three{right:17%;top:72%}
+.rally-layout{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:0 22px 44px}
+.rally-photo{width:min(68vw,280px);flex:none}.rally-photo img{width:100%;height:auto;display:block;border-radius:2px}
+.rally-copy{max-width:570px}.rally-eyebrow{font:600 10px/1.5 'DM Sans',sans-serif;letter-spacing:.2em;color:#805b36}
+.rally-headline{font:400 clamp(21px,6vw,27px)/1.16 'Cormorant Garamond',serif;margin:10px 0 13px;color:#56313c}.rally-headline em{font-weight:400}
+.rally-copy h1{font:400 clamp(51px,12vw,72px)/1.08 'Great Vibes',cursive;color:#56182c;margin:0}.rally-copy h1 span{font:italic .55em 'Cormorant Garamond',serif;color:#9b7541}
+.rally-date{font:600 11px/1.5 'DM Sans',sans-serif;letter-spacing:.12em;text-transform:uppercase;margin-top:16px;color:#60384a}.rally-date span{color:#a7834e;margin:0 4px}
+.rally-action{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:48px;padding:0 18px;margin-top:20px;border:1px solid #a7834e;color:#56182c;font:600 10px 'DM Sans',sans-serif;letter-spacing:.13em;text-transform:uppercase}
+@media(min-width:768px){.rally-hero{text-align:left}.rally-nav{justify-content:flex-end;padding:18px 6%}.rally-atmosphere{height:112px}.rally-path-mobile{display:none}.rally-path-desktop{display:block}.rally-layout{width:min(1100px,100%);margin:auto;flex-direction:row-reverse;justify-content:space-between;gap:60px;padding:8px 6% 70px}.rally-photo{width:min(31vw,330px)}.rally-copy{width:55%}.rally-headline{font-size:clamp(31px,3.4vw,48px);margin:18px 0 22px}.rally-copy h1{font-size:clamp(70px,7vw,100px)}.rally-action{margin-top:30px}}
+@media(prefers-reduced-motion:no-preference){
+ .rally-path-mask{animation:rally-draw 2.6s ease-in-out .3s both}
+ .rally-shuttle{animation:rally-shuttle-show .3s ease-out .3s both}
+ .rally-moon>span{animation:rally-moon-ambient 10s ease-in-out 2.6s infinite}
+ .rally-star{animation:rally-star-twinkle 7s ease-in-out infinite}.rally-star-two{animation-delay:-2.3s}.rally-star-three{animation-delay:-4.1s}
+ .rally-headline,.rally-copy h1{animation:rally-text-settle 1.2s ease-out 2.5s both}
+}
+@keyframes rally-shuttle-show{from{opacity:0}to{opacity:.82}}
+@keyframes rally-draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+@keyframes rally-moon-ambient{0%,100%{opacity:.5}50%{opacity:1}}
+@keyframes rally-star-twinkle{0%,100%{opacity:.2}50%{opacity:.55}}
+@keyframes rally-text-settle{from{opacity:.85;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.rally-path-mask{stroke-dashoffset:0;animation:none}.rally-moon>span,.rally-star,.rally-headline,.rally-copy h1{animation:none!important}.rally-shuttle{display:none}}
+[data-motion-paused] .rally-moon>span,[data-motion-paused] .rally-star{animation-play-state:paused!important}
+
+/* Phase 6A: isolated, two-page storybook prototype. */
+.storybook { background:#33242d; padding:0 12px 24px; color:#56182c; }
+.book-site-nav { display:flex; justify-content:center; gap:clamp(18px,5vw,42px); align-items:center; min-height:64px; }
+.book-site-nav a { color:#f7f0e3; text-transform:uppercase; font:500 10px/1.2 var(--font-body, sans-serif); letter-spacing:.12em; padding:16px 0; }
+.book-stage { position:relative; max-width:480px; margin:auto; perspective:1800px; padding-left:13px; }
+.book-spine { position:absolute; left:0; top:4px; bottom:0; width:21px; border-radius:8px 0 0 8px; background:linear-gradient(90deg,#361320,#79344a 45%,#481324); box-shadow:inset -3px 0 5px #230b13, 0 6px 12px #160b10a0; }
+.book-page { position:relative; min-height:750px; border-radius:3px 10px 10px 3px; background:#f7ead9; box-shadow:0 5px 0 #b99876, 0 9px 0 #775841, 0 17px 20px #160b1080; overflow:hidden; }
+.book-cover-content { position:relative; min-height:750px; display:flex; flex-direction:column; overflow:hidden; background:#f9e8d9; }
+.book-cover-content:after { content:''; position:absolute; inset:10px; border:1px solid #c6a15d; border-radius:2px; pointer-events:none; z-index:2; }
+.book-cover-heading { position:relative; text-align:center; padding:36px 20px 20px; background:linear-gradient(155deg,#e6d9d5,#f8e9da 45%,#f5d6cb); z-index:1; }
+.book-label { margin:0; color:#56182c; font:500 11px/1.4 sans-serif; letter-spacing:.2em; text-transform:uppercase; }
+.book-cover-heading h1 { margin:12px 0; font-family:'Great Vibes',cursive; font-weight:400; font-size:clamp(58px,16vw,83px); line-height:.9; color:#56182c; }
+.book-cover-heading h1 span { color:#bd8f51; font-size:.63em; }
+.book-moon { position:absolute; right:9%; top:35px; color:#c39855; font:48px/1 serif; }
+.book-cover-subtitle { margin:20px 0 0; text-transform:uppercase; letter-spacing:.15em; font:10px/1.7 sans-serif; }
+.book-cover-photo { position:relative; flex:1; min-height:400px; overflow:hidden; }
+.book-cover-photo img { display:block; width:100%; height:100%; position:absolute; inset:0; object-fit:cover; object-position:center 54%; }
+.book-cover-trail { position:absolute; z-index:2; width:80%; top:26%; left:10%; color:#bf8e42; pointer-events:none; }
+.book-open { position:absolute; z-index:3; bottom:35px; left:50%; transform:translateX(-50%); width:min(78%,310px); min-height:54px; border:1px solid #d2b17a; border-radius:30px; color:#fff4e6; background:#56182c; text-transform:uppercase; letter-spacing:.18em; font:500 11px sans-serif; cursor:pointer; }
+.book-open span { font-size:20px; margin-left:12px; }
+.book-chapter-content { text-align:center; min-height:650px; padding:40px 25px 0; background:#f7ead9; }
+.book-chapter-divider { color:#bd9458; margin:14px auto; }
+.book-chapter-content h2 { color:#56182c; font-family:'Cormorant Garamond',serif; font-size:clamp(48px,13vw,70px); line-height:.95; font-weight:500; margin:0 0 22px; }
+.book-chapter-intro { max-width:310px; margin:0 auto; color:#6a3040; font:12px/1.7 sans-serif; letter-spacing:.11em; text-transform:uppercase; }
+.book-chapter-content picture { display:block; margin:14px auto 0; max-width:410px; }
+.book-chapter-content img { display:block; width:100%; height:280px; object-fit:contain; }
+.book-chapter-caption { max-width:290px; margin:12px auto 0; font:16px/1.4 'Cormorant Garamond',serif; }
+.book-controls { display:flex; align-items:center; justify-content:space-between; padding:14px 28px 28px; }
+.book-controls button { border:1px solid #8a5260; border-radius:50%; width:44px; height:44px; background:transparent; color:#56182c; font-size:23px; cursor:pointer; }
+.book-controls button:disabled { opacity:.38; cursor:default; }
+.book-controls span { display:flex; gap:10px; align-items:center; }.book-controls b,.book-controls i { display:block; border-radius:50%; width:9px; height:9px; background:#d4b39e; }.book-controls i { background:#56182c; }
+.book-status { color:#f7f0e3; text-align:center; font:11px sans-serif; letter-spacing:.1em; margin:18px 0 0; }
+.book-turn { position:absolute; inset:0 0 0 13px; z-index:5; transform-origin:left center; transform-style:preserve-3d; animation:book-page-turn 800ms cubic-bezier(.45,0,.22,1) both; pointer-events:none; }
+.book-turn-front,.book-turn-back { position:absolute; inset:0; overflow:hidden; border-radius:3px 10px 10px 3px; backface-visibility:hidden; box-shadow:4px 0 18px #3b1b2d55; }
+.book-turn-front .book-open { pointer-events:none; }.book-turn-back { transform:rotateY(180deg); background:linear-gradient(90deg,#d6b99b,#f9eddd 30%,#e7d2bb); }
+.book-turn-reverse { animation-name:book-page-return; }
+@keyframes book-page-turn { from {transform:rotateY(0)} to {transform:rotateY(-180deg)} }
+@keyframes book-page-return { from {transform:rotateY(-180deg)} to {transform:rotateY(0)} }
+@media(min-width:768px) { .storybook { padding-bottom:32px; }.book-stage { max-width:520px; }.book-page,.book-cover-content { min-height:790px; }.book-chapter-content { min-height:690px; }.book-chapter-content img { height:300px; } }
+@media(prefers-reduced-motion:reduce) { .book-turn { animation:none; } }
+
+/* Phase 6B: paper depth and quieter chapter navigation. */
+.book-chapter-content { padding:36px 20px 0; background:radial-gradient(ellipse at 15% 24%,#e8d1c35c,transparent 35%),radial-gradient(ellipse at 85% 70%,#ddc5be45,transparent 40%),#f7ead9; }
+.book-chapter-divider { position:relative; width:88px; margin:12px auto 14px; font-size:11px; }
+.book-chapter-divider:before,.book-chapter-divider:after { content:''; position:absolute; top:50%; width:32px; height:1px; background:#c6a15d88; }
+.book-chapter-divider:before { left:0; }.book-chapter-divider:after { right:0; }
+.book-chapter-content h2 { margin-bottom:16px; }
+.book-chapter-content picture { max-width:390px; height:330px; margin:8px auto 0; overflow:hidden; }
+.book-chapter-content img { width:100%; height:100%; object-fit:cover; object-position:center 57%; mix-blend-mode:multiply; }
+.book-chapter-caption { margin:8px auto 0; }
+.book-controls { padding-top:12px; }
+.book-controls .book-page-number { display:flex; flex-direction:column; gap:4px; color:#805b5e; font:11px/1 sans-serif; letter-spacing:.14em; text-align:center; }
+.book-page-number small { font-size:9px; text-transform:uppercase; letter-spacing:.14em; }
+.book-cast-shadow { position:absolute; z-index:4; inset:0 0 0 13px; border-radius:3px 10px 10px 3px; pointer-events:none; background:linear-gradient(90deg,transparent 15%,#3e1e253d 60%,transparent 90%); animation:book-shadow-travel 800ms ease-in-out both; }
+.book-cast-shadow-reverse { animation-direction:reverse; }
+.book-turn-front:after,.book-turn-back:after { content:''; position:absolute; top:0; right:0; width:16%; height:100%; pointer-events:none; background:linear-gradient(90deg,transparent,#6c45351a 53%,#fff6e3aa 86%,#8b624452); border-radius:0 12px 12px 0; }
+.book-turn-back { background:linear-gradient(90deg,#ddc7aa,#fbefdd 32%,#f3e2ca 78%,#d0b194); }
+.book-turn-front,.book-turn-back { animation:book-paper-shadow 800ms ease-in-out both; }
+@keyframes book-shadow-travel { 0%,100% { opacity:0; transform:translateX(0); } 45% { opacity:.8; transform:translateX(-7%); } }
+@keyframes book-paper-shadow { 0%,100% { box-shadow:2px 0 6px #3b1b2d33; } 50% { box-shadow:13px 0 24px #3b1b2d75; } }
+@media(min-width:768px) { .book-chapter-content picture { height:350px; }.book-chapter-content img { height:100%; } }
+@media(prefers-reduced-motion:reduce) { .book-cast-shadow,.book-turn-front,.book-turn-back { animation:none; } }
+
+/* Phase 6C: a softer paper turn and temporary standalone preview. */
+.book-turn { animation-duration:900ms; animation-timing-function:cubic-bezier(.4,.02,.2,1); }
+.book-cast-shadow,.book-turn-front,.book-turn-back { animation-duration:900ms; }
+.book-turn-front:after,.book-turn-back:after { width:19%; border-radius:0 45% 44% 0 / 0 3% 3% 0; background:linear-gradient(90deg,transparent 6%,#674c3d12 52%,#fff8ebaa 86%,#96735e66); }
+.book-hinge-shadow { position:absolute; inset:0 auto 0 12px; width:35px; z-index:4; pointer-events:none; background:linear-gradient(90deg,#381e2766,transparent); animation:book-hinge 900ms ease-in-out both; }
+.book-hinge-reverse { animation-direction:reverse; }
+@keyframes book-hinge { 0%,100% { opacity:.18; } 48% { opacity:.8; } }
+@media(prefers-reduced-motion:reduce) { .book-hinge-shadow { animation:none; } }
+
+.storybook-preview { min-height:100vh; background:#33242d; }
+
+/* Chapter two: the shared interests woven into the watercolor page. */
+.book-little { min-height:0; padding:32px 20px 0; }
+.book-little h2 { font-size:clamp(43px,11vw,60px); margin-bottom:10px; }
+.little-intro { max-width:260px; margin:0 auto; color:#734b50; font:italic 17px/1.25 'Cormorant Garamond',serif; }
+.little-art { position:relative; height:390px; max-width:350px; margin:4px auto 0; }
+.little-art>img { width:100%; height:100%; object-fit:cover; object-position:center 52%; mix-blend-mode:multiply; }
+.little-trail { position:absolute; inset:0; width:100%; height:100%; color:#bb955f; pointer-events:none; opacity:.55; }
+.little-note { position:absolute; margin:0; max-width:118px; color:#663b40; font:italic 14px/1.12 'Cormorant Garamond',serif; }
+.little-note strong,.little-books strong { display:block; margin-bottom:3px; font:600 9px/1.2 sans-serif; letter-spacing:.12em; text-transform:uppercase; color:#8e6239; }
+.little-badminton { top:25%; left:0; text-align:left; }.little-moon { top:5%; right:0; text-align:right; }.little-chai { top:57%; left:0; text-align:left; }.little-music { bottom:1%; right:0; text-align:right; }
+.little-books { display:flex; align-items:center; justify-content:center; gap:10px; margin:4px auto 0; color:#663b40; }
+.little-books svg { width:58px; height:42px; flex:none; }.little-books p { margin:0; max-width:165px; text-align:left; font:italic 15px/1.1 'Cormorant Garamond',serif; }
+@media(max-width:359px) { .little-note { font-size:13px; max-width:100px; } }
+.little-chai { top:69%; }
+.little-chai svg { display:block; width:38px; height:22px; margin-top:3px; color:#a27c4c; }
+
+/* Complete storybook chapters */
+.book-cover-date { margin:8px 0 0; color:#74454a; font:600 10px/1.4 'DM Sans',sans-serif; letter-spacing:.1em; text-transform:uppercase; }
+.book-index { display:flex; justify-content:center; align-items:center; gap:10px; margin:-3px auto 14px; color:#f3e3d5; font:11px/1.4 'DM Sans',sans-serif; }
+.book-index label { letter-spacing:.08em; text-transform:uppercase; }
+.book-index select { max-width:190px; color:#f7ead9; background:#4b2936; border:1px solid #a98460; border-radius:3px; padding:8px 24px 8px 10px; font:12px 'DM Sans',sans-serif; }
+.book-new-chapter { padding:38px 28px 8px; text-align:center; color:#4b2e32; font:17px/1.45 'Cormorant Garamond',serif; }
+.book-new-heading h2 { font:500 clamp(39px,10vw,56px)/.98 'Cormorant Garamond',serif; color:#56182c; margin:0 0 15px; }
+.book-new-heading > p:last-child:not(.book-label) { max-width:300px; margin:0 auto 20px; font:italic 17px/1.35 'Cormorant Garamond',serif; color:#765457; }
+.book-city-list { position:relative; max-width:340px; margin:22px auto 0; }
+.book-city-list:before { content:''; position:absolute; left:16px; top:4%; bottom:6%; border-left:1px dashed #c6a15d; }
+.book-city-list figure { position:relative; margin:0 0 20px; padding-left:29px; text-align:left; }
+.book-city-list figure:before { content:''; position:absolute; left:12px; top:12px; width:9px; height:9px; border-radius:50%; background:#b89059; }
+.book-city-list img { display:block; width:100%; height:135px; object-fit:cover; object-position:center 49%; border-radius:2px; }
+.book-city-list h3 { margin:6px 0 0; font:500 24px/1 'Cormorant Garamond',serif; color:#56182c; }.book-city-list p { margin:3px 0 0; font-style:italic; }
+.book-invitation .countdown-units { margin:25px auto; max-width:350px; }.book-invitation .countdown-number { font-size:clamp(32px,9vw,44px); }.book-invitation .countdown-label { font-size:9px; }
+.book-date { color:#865f3b; font:600 10px/1.5 'DM Sans',sans-serif; letter-spacing:.1em; text-transform:uppercase; }
+.book-disclosure { margin:25px auto 0; max-width:350px; border-top:1px solid #d0b78e; border-bottom:1px solid #d0b78e; }.book-disclosure summary { cursor:pointer; padding:14px; color:#56182c; font:600 11px 'DM Sans',sans-serif; letter-spacing:.12em; text-transform:uppercase; }.book-family { padding:0 4px 16px; }.book-family p { margin:16px 0; }.book-family h3 { color:#56182c; font:500 25px 'Cormorant Garamond',serif; margin:14px 0 2px; }
+.book-events { list-style:none; max-width:350px; margin:26px auto 0; padding:0 0 0 26px; border-left:1px solid #c6a15d; text-align:left; }.book-events li { position:relative; padding:0 0 24px; }.book-events li:last-child { padding-bottom:0; }.book-events li:before { content:'✦'; position:absolute; left:-33px; top:0; color:#b58c52; background:#f7ead9; font-size:14px; }.book-events p { margin:3px 0; }.book-event-date { color:#916a3b; font:600 10px/1.4 'DM Sans',sans-serif; letter-spacing:.07em; text-transform:uppercase; }.book-events h3 { color:#56182c; font:500 29px/1 'Cormorant Garamond',serif; margin:5px 0; }.book-event-tagline { font-style:italic; }
+.book-venue { max-width:350px; margin:26px auto 0; padding-bottom:24px; border-bottom:1px solid #d4bd9b; }.book-venue h3 { margin:8px 0; color:#56182c; font:500 27px/1.05 'Cormorant Garamond',serif; }.book-venue address { font-style:normal; }.book-venue p:not(.book-label) { margin:8px 0; }.book-direction { display:inline-block; margin:6px 0 12px; color:#56182c; font:600 11px 'DM Sans',sans-serif; text-transform:uppercase; letter-spacing:.08em; text-decoration:underline; text-underline-offset:4px; }.book-venues .calendar-control { margin:4px auto; color:#56182c; }.book-venues .calendar-control summary { justify-content:center; }.book-venues .calendar-options { color:#56182c; }.book-venues .share-invitation { margin:22px 0; }.book-venues .share-invitation button,.book-venues .share-invitation a { color:#56182c; }
+.book-epilogue { min-height:620px; display:flex; flex-direction:column; justify-content:center; }.book-epilogue-moon { font:70px/1 serif; color:#bd985d; margin:28px 0; }.book-signature { font:48px/1.2 'Great Vibes',cursive; color:#56182c; margin:12px 0; }.book-signature span { color:#b18b57; font:italic 26px 'Cormorant Garamond',serif; }.book-blessing { margin:32px 0 0; color:#56182c; font-size:22px; }.book-gifts { text-transform:uppercase; color:#8e6d48; letter-spacing:.12em; font:10px 'DM Sans',sans-serif; }
+.book-stage button:focus-visible,.book-index select:focus-visible,.book-site-nav a:focus-visible,.book-new-chapter a:focus-visible,.book-new-chapter summary:focus-visible { outline:2px solid #a87730; outline-offset:3px; }
+@media(min-width:768px) { .book-new-chapter { padding-left:42px; padding-right:42px; }.book-city-list img { height:145px; } }
+
+/* Phase 8: stable page surfaces and touch-friendly guest controls. */
+.book-stage { isolation:isolate; }
+.book-page-base { z-index:1; }
+.book-turn-front,.book-turn-back { -webkit-backface-visibility:hidden; backface-visibility:hidden; }
+.book-turn-front { transform:rotateY(0deg) translateZ(.1px); }
+.book-turn-back { transform:rotateY(180deg) translateZ(.1px); }
+.book-venue .book-direction,.book-venue .calendar-control summary { min-height:44px; display:inline-flex; align-items:center; justify-content:center; }
+.book-venue .calendar-control summary { padding:0 12px; }
+.book-venue .calendar-options a,.book-venue .calendar-options button { min-height:44px; }
+.book-index select { min-height:44px; }
+.little-note strong,.little-books strong { font-size:10px; }
+
+/* Immersive photo hero, available independently of the storybook for review. */
+.rally-hero { position:relative; isolation:isolate; min-height:100svh; overflow:hidden; background:#604b4d; color:#fff6e9; }
+.rally-backdrop { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 47%; z-index:-2; }
+.rally-hero:before { content:''; position:absolute; inset:0; z-index:-1; pointer-events:none; background:linear-gradient(180deg,rgba(37,24,31,.43) 0%,transparent 25%,transparent 47%,rgba(35,22,29,.3) 68%,rgba(35,21,27,.88) 100%); }
+.rally-nav { position:relative; z-index:2; padding:18px 20px; }
+.rally-nav a { color:#fff7ed; text-shadow:0 1px 5px #1b1616; }
+.rally-atmosphere { position:absolute; top:68px; left:4%; width:92%; height:clamp(54px,17vw,104px); opacity:.75; }
+.rally-path path:not(.rally-path-mask) { stroke:#f3d9a0; }
+.rally-moon { background:#f7e5c5; box-shadow:inset -4px -2px 0 #ddbd8b66; }
+.rally-layout { position:absolute; inset:auto 0 0; display:block; padding:20px 22px 48px; text-align:center; }
+.rally-copy { margin:auto; color:#fff6e9; }
+.rally-copy h1,.rally-headline,.rally-date,.rally-eyebrow { color:#fff8ee; text-shadow:0 2px 10px #23131c99; }
+.rally-copy h1 span { color:#e7c794; }
+.rally-headline { font-size:clamp(19px,5vw,25px); margin:6px 0 8px; }
+.rally-copy h1 { font-size:clamp(53px,12vw,78px); }
+.rally-date { margin-top:12px; }
+.rally-action { color:#fff8ee; border-color:#e8c994; background:#2c1b2480; margin-top:17px; }
+@media(min-width:768px) {
+ .rally-hero:before { background:linear-gradient(90deg,rgba(35,21,27,.82),rgba(35,21,27,.50) 34%,transparent 66%),linear-gradient(0deg,rgba(35,21,27,.35),transparent 36%); }
+ .rally-atmosphere { top:80px; left:4%; width:90%; }
+ .rally-layout { inset:auto auto 10% 0; width:min(50%,650px); padding:32px 5%; text-align:left; }
+ .rally-copy { width:100%; }
+ .rally-headline { font-size:clamp(28px,3.2vw,43px); }
+ .rally-copy h1 { font-size:clamp(70px,7vw,100px); }
+}
+
+/* Refined opening pages: a framed cover and a keepsake journal. */
+.book-cover-heading { padding:34px 22px 21px; background:radial-gradient(ellipse at 50% 0%,#fff9ee,#f5e5d9 64%,#edd5d0); }
+.book-cover-heading .book-label { color:#8b654b; font-size:10px; letter-spacing:.19em; }
+.book-cover-heading h1 { margin:17px 0 12px; }
+.book-cover-heading h1:after { content:'✧'; display:block; color:#ba925d; font:16px/1 serif; margin:13px auto 0; }
+.book-cover-photo { padding:0 20px 19px; min-height:390px; background:#f2e1d3; }
+.book-photo-mat { position:absolute; inset:0 20px 20px; overflow:hidden; border:1px solid #c3a073; border-radius:48% 48% 2px 2px / 15% 15% 2px 2px; }
+.book-photo-mat img { object-position:center 53%; }
+.book-cover-trail { top:28%; }
+.book-open { bottom:34px; box-shadow:0 4px 14px #35192340; }
+.keepsake-page h2 { font-size:clamp(42px,10vw,59px); }
+.keepsake-journal { position:relative; max-width:330px; min-height:420px; margin:20px auto 0; display:grid; grid-template-columns:1fr 1fr; align-items:center; gap:8px 17px; }
+.keepsake-thread { position:absolute; inset:0; width:100%; height:100%; color:#b99562; opacity:.55; pointer-events:none; }
+.keepsake { position:relative; z-index:1; text-align:center; color:#69464b; }
+.keepsake p { margin:4px auto 0; max-width:140px; font:italic 15px/1.16 'Cormorant Garamond',serif; }
+.keepsake strong { display:block; margin-bottom:3px; font:600 10px/1.3 'DM Sans',sans-serif; letter-spacing:.13em; text-transform:uppercase; color:#8f6945; }
+.keepsake svg { width:100px; height:78px; }
+.keepsake-image { width:110px; height:105px; margin:auto; background-image:url('/images/watercolor-story-mobile.webp'); background-repeat:no-repeat; mix-blend-mode:multiply; }
+.keepsake-chai .keepsake-image { background-size:290% auto; background-position:66% 62%; }
+.keepsake-music .keepsake-image { background-size:260% auto; background-position:83% 86%; }
+.keepsake-moon .keepsake-image { background-size:270% auto; background-position:88% 34%; }
+.book-chapter-content:not(.book-little) picture { border-radius:2px; overflow:hidden; }
+.book-chapter-content:not(.book-little) picture img { object-fit:cover; object-position:center 58%; }
+.keepsake-chai .keepsake-image { background-size:380% auto; background-position:69% 63%; }
+
+/* Fixed book shell: only the active page content scrolls. */
+.storybook { padding-bottom:max(12px,env(safe-area-inset-bottom)); }
+.book-stage { height:clamp(420px,calc(100dvh - 176px - env(safe-area-inset-bottom)),900px); }
+.book-page { height:100%; min-height:0; display:flex; flex-direction:column; }
+.book-page-scroll { flex:1 1 auto; min-height:0; overflow-y:auto; overflow-x:hidden; overscroll-behavior-y:contain; -webkit-overflow-scrolling:touch; scrollbar-width:thin; }
+.book-page-scroll:focus-visible { outline:2px solid #a87730; outline-offset:-3px; }
+.book-page-scroll-cover { overflow:hidden; }
+.book-page-scroll-cover .book-cover-content { height:100%; min-height:0; }
+.book-page-scroll-cover .book-cover-photo { min-height:0; }
+.book-page-scroll .book-chapter-content,.book-page-scroll .book-new-chapter { min-height:0; }
+.book-page-scroll .book-epilogue { min-height:100%; }
+.book-page .book-controls { flex:0 0 auto; padding:10px 28px max(14px,env(safe-area-inset-bottom)); background:#f7ead9; border-top:1px solid #d6c3a345; }
+.book-turn-front .book-cover-content { height:100%; min-height:0; }
+.book-turn-front .book-cover-photo { min-height:0; }
+.book-status { margin:10px 0 0; }
+@media(min-width:768px) { .book-page { min-height:0; }.book-page-scroll-cover .book-cover-content { min-height:0; }.book-page-scroll .book-chapter-content { min-height:0; } }
+
+/* A quiet, scrollable photo album within the existing book page. */
+.book-moments .book-new-heading h2 { max-width:330px; margin-left:auto; margin-right:auto; font-size:clamp(37px,9vw,51px); }
+.moments-album { max-width:380px; margin:22px auto 0; }
+.moments-album figure { margin:0 auto 26px; }
+.moments-album img { display:block; max-width:100%; width:auto; height:auto; max-height:390px; margin:auto; object-fit:contain; }
+.moments-featured img { width:100%; max-height:none; }
+.moments-album figcaption { margin:10px auto 0; color:#785856; font:italic 17px/1.35 'Cormorant Garamond',serif; }
+
+/* Natural-height paper pages: the browser scrolls rather than a nested panel. */
+.book-stage { height:auto; }
+.book-page { height:auto; min-height:750px; overflow:visible; }
+.book-page-scroll { flex:1 0 auto; overflow:visible; overscroll-behavior:auto; }
+.book-page-scroll-cover { overflow:visible; }
+.book-page-scroll-cover .book-cover-content { height:750px; min-height:750px; }
+.book-page-scroll-cover .book-cover-photo { min-height:0; }
+.book-turn-front .book-cover-content { height:750px; min-height:750px; }
+.book-turn-front .book-cover-photo { min-height:0; }
+.book-page .book-controls { border-top:0; }
+@media(min-width:768px) { .book-page { min-height:790px; }.book-page-scroll-cover .book-cover-content,.book-turn-front .book-cover-content { height:790px; min-height:790px; } }
+
+/* Our Moments: layered prints on warm scrapbook paper. */
+.book-moments.scrapbook { padding:36px 22px 8px; }
+.scrapbook .book-new-heading h2 { font-size:clamp(44px,12vw,64px); margin-bottom:10px; }
+.scrapbook .book-new-heading > p:last-child:not(.book-label) { font-size:18px; margin-bottom:20px; }
+.scrapbook-composition { position:relative; max-width:390px; margin:0 auto; }
+.scrapbook-featured { position:relative; margin:0; padding:7px; background:#f8ecdd; box-shadow:0 2px 7px #78584130; transform:rotate(-1deg); }
+.scrapbook-featured .scrapbook-paper { overflow:hidden; clip-path:polygon(0 1%,6% 0,12% 1%,18% 0,26% 1%,33% 0,40% 1%,48% 0,55% 1%,62% 0,70% 1%,78% 0,86% 1%,94% 0,100% 1%,99% 99%,91% 100%,84% 99%,77% 100%,69% 99%,61% 100%,53% 99%,45% 100%,36% 99%,28% 100%,20% 99%,12% 100%,5% 99%,0 100%); }
+.scrapbook-featured img { display:block; width:100%; height:auto; }
+.scrapbook-note { position:absolute; z-index:2; right:-7px; top:10px; width:34%; padding:10px 9px; text-align:left; color:#57383b; background:#f4e4ce; box-shadow:0 2px 5px #5a3e302a; font:italic clamp(13px,3.7vw,17px)/1.2 'Cormorant Garamond',serif; transform:rotate(4deg); }
+.scrapbook-note span,.scrapbook-photo figcaption span { color:#b78d55; }
+.scrapbook-keepsakes { position:relative; min-height:330px; margin:8px 0 0; }
+.scrapbook-photo { position:absolute; margin:0; padding:6px 6px 10px; background:#fbefdf; box-shadow:0 2px 6px #684a3630; }
+.scrapbook-photo:before { content:''; position:absolute; z-index:2; top:-7px; left:38%; width:32%; height:16px; background:#d6bb958c; transform:rotate(-5deg); }
+.scrapbook-photo img { width:100%; display:block; object-fit:cover; }
+.scrapbook-photo figcaption { text-align:left; color:#65474a; font:italic clamp(13px,3.8vw,16px)/1.12 'Cormorant Garamond',serif; padding:6px 3px 0; }
+.scrapbook-first { width:44%; left:1%; top:10px; transform:rotate(-5deg); }.scrapbook-first img { aspect-ratio:4/4.5; object-position:center 30%; }
+.scrapbook-second { width:42%; right:1%; top:38px; transform:rotate(4deg); }.scrapbook-second img { aspect-ratio:4/4.4; object-position:center 32%; }
+.scrapbook-third { z-index:3; width:38%; left:32%; top:185px; transform:rotate(-3deg); }.scrapbook-third img { aspect-ratio:4/3.4; object-position:center 37%; }
+.scrapbook-more { margin:10px auto 0; max-width:360px; text-align:center; }
+.scrapbook-more summary { cursor:pointer; padding:14px; color:#72544d; font:600 10px 'DM Sans',sans-serif; letter-spacing:.12em; text-transform:uppercase; }
+.scrapbook-more figure { margin:12px auto 24px; }.scrapbook-more img { display:block; width:auto; height:auto; max-width:100%; max-height:390px; margin:auto; }
+@media(max-width:360px) { .scrapbook-keepsakes { min-height:305px; }.scrapbook-third { top:165px; } }
+.scrapbook-keepsakes { min-height:430px; }
+.scrapbook-third { top:245px; }
+@media(max-width:360px) { .scrapbook-keepsakes { min-height:400px; }.scrapbook-third { top:220px; } }
+.scrapbook-keepsakes { min-height:470px; }
+.scrapbook-third { top:280px; }
+@media(max-width:360px) { .scrapbook-keepsakes { min-height:430px; }.scrapbook-third { top:250px; } }
+
+/* Soft paper and coordinated keepsakes, with all supplied memories visible. */
+.book-moments.scrapbook { position:relative; background:radial-gradient(ellipse at 8% 8%,#d8b7a529,transparent 25%),radial-gradient(ellipse at 90% 44%,#e6c1b32e,transparent 29%),#f7ead9; }
+.scrapbook .book-new-heading { position:relative; z-index:1; }
+.book-moments.scrapbook .book-new-heading h2 { max-width:none; white-space:nowrap; font-size:clamp(39px,10vw,55px); }
+.scrapbook-botanical { position:absolute; left:7px; top:40px; width:55px; height:95px; color:#ad8981; opacity:.55; pointer-events:none; }
+.scrapbook-composition { max-width:410px; }
+.scrapbook-featured { padding:8px; background:#f5e7d5; box-shadow:0 2px 8px #66463a3b; }
+.scrapbook-note { background:#f3e3ce; font-size:clamp(14px,3.7vw,17px); }
+.scrapbook-keepsakes { min-height:455px; }
+.scrapbook-group-1 { margin-top:8px; border-top:1px solid #cfb99a77; }
+.scrapbook-group-1 .scrapbook-first { transform:rotate(3deg); }
+.scrapbook-group-1 .scrapbook-second { transform:rotate(-4deg); }
+.scrapbook-group-1 .scrapbook-third { transform:rotate(2deg); }
+.scrapbook-landscape img { aspect-ratio:auto; object-fit:contain; }
+@media(max-width:360px) { .scrapbook-keepsakes { min-height:420px; } }
+.scrapbook-keepsakes { min-height:430px; }
+.scrapbook-third { top:clamp(235px,66vw,270px); }
+.scrapbook-group-1 .scrapbook-first { left:5%; top:24px; }
+.scrapbook-group-1 .scrapbook-second { right:3%; top:8px; }
+.scrapbook-group-1 .scrapbook-third { left:29%; }
+@media(max-width:360px) { .scrapbook-keepsakes { min-height:405px; }.scrapbook-third { top:225px; } }
+
+/* Phase 9B: a fixed book, with only the active page scrolling. */
+.book-stage { height:clamp(420px,calc(100dvh - 176px - env(safe-area-inset-bottom)),900px); }
+.book-page { height:100%; min-height:0; display:flex; flex-direction:column; overflow:hidden; }
+.book-page-scroll { flex:1 1 auto; min-height:0; overflow-y:auto; overflow-x:hidden; overscroll-behavior-y:contain; -webkit-overflow-scrolling:touch; }
+.book-page-scroll-cover { overflow:hidden; }
+.book-page-scroll-cover .book-cover-content,.book-turn-front .book-cover-content { height:100%; min-height:0; }
+.book-page-scroll-cover .book-cover-photo,.book-turn-front .book-cover-photo { min-height:0; }
+.book-page-scroll .book-chapter-content,.book-page-scroll .book-new-chapter { min-height:0; }
+.book-page-scroll .book-epilogue { min-height:100%; }
+.book-page .book-controls { flex:0 0 auto; background:#f7ead9; border-top:1px solid #d6c3a345; }
+@media(min-width:768px) { .book-page { min-height:0; }.book-page-scroll-cover .book-cover-content,.book-turn-front .book-cover-content { height:100%; min-height:0; } }
+
+/* Editorial scrapbook: one large print, layered paper, and a varied photo composition. */
+.book-moments.scrapbook { background:radial-gradient(ellipse at 6% 6%,#cfaa9d28,transparent 30%),radial-gradient(ellipse at 95% 40%,#e6b9ad27,transparent 31%),repeating-linear-gradient(24deg,#795d4d05 0 1px,transparent 1px 7px),#f7ead9; }
+.scrapbook-composition { max-width:410px; }
+.scrapbook-featured { z-index:1; padding:8px 8px 10px; background:#f5e6d3; box-shadow:1px 3px 9px #694b382d; transform:rotate(-1deg); }
+.scrapbook-featured:before { content:''; position:absolute; inset:-4px 4px 5px -3px; z-index:-1; background:#f3dfc7; transform:rotate(1.5deg); }
+.scrapbook-note { right:-7px; top:8px; width:32%; padding:11px 9px; transform:rotate(4deg); background:#f3e2cb; clip-path:polygon(0 2%,16% 0,34% 2%,52% 0,70% 2%,88% 0,100% 2%,99% 98%,83% 100%,66% 98%,49% 100%,32% 98%,15% 100%,0 98%); }
+.scrapbook-collage { position:relative; height:390px; margin:8px 0 0; }
+.scrapbook-memory { position:absolute; margin:0; color:#65474a; }
+.scrapbook-memory img { display:block; width:100%; object-fit:cover; }
+.scrapbook-memory figcaption,.scrapbook-extra figcaption { color:#60423f; text-align:left; font:italic clamp(14px,3.8vw,17px)/1.15 'Cormorant Garamond',serif; padding:7px 3px 0; }
+.scrapbook-memory figcaption span,.scrapbook-extra figcaption span { color:#b78d55; }
+.scrapbook-memory-a { width:47%; top:8px; left:0; padding:7px 7px 13px; background:#f6e9d8; box-shadow:0 2px 7px #70513c31; transform:rotate(-5deg); }
+.scrapbook-memory-a img { aspect-ratio:4/4.3; object-position:center 30%; }
+.scrapbook-memory-b { width:42%; top:40px; right:0; padding:6px; background:#ead6bf; box-shadow:0 2px 6px #70513c30; transform:rotate(4deg); }
+.scrapbook-memory-b img { aspect-ratio:4/4; object-position:center 25%; }
+.scrapbook-memory-b figcaption { padding:9px 4px 5px; }
+.scrapbook-memory-c { z-index:2; width:40%; top:240px; left:31%; padding:7px 7px 10px; background:#f8ead8; box-shadow:0 3px 8px #5c403027; transform:rotate(-3deg); }
+.scrapbook-memory-c img { aspect-ratio:4/3.4; object-position:center 36%; }
+.scrapbook-memory-a:before,.scrapbook-memory-b:before { content:''; position:absolute; z-index:2; top:-6px; left:35%; width:34%; height:14px; background:#d6b99688; transform:rotate(-7deg); }
+.scrapbook-continued { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-start; gap:12px; padding-top:16px; border-top:1px solid #d5b99b77; }
+.scrapbook-extra { margin:0; width:45%; padding:4px; background:#efe0cc; transform:rotate(-2deg); }
+.scrapbook-extra-1 { margin-top:25px; transform:rotate(3deg); }
+.scrapbook-extra-2 { width:62%; margin:8px auto 0; padding:7px; background:#f8ecdd; transform:rotate(-2deg); }
+.scrapbook-extra img { display:block; width:100%; height:auto; }
+@media(max-width:360px) { .scrapbook-collage { height:370px; }.scrapbook-memory-c { top:220px; } }
+
+/* Opaque, stable page surfaces for both directions of a turn. */
+.book-turn { transform-style:preserve-3d; }
+.book-turn-front { background:#f7ead9; -webkit-backface-visibility:hidden; backface-visibility:hidden; }
+.book-turn-back { background:linear-gradient(90deg,#ddc7aa,#fbefdd 32%,#f3e2ca 78%,#d0b194); -webkit-backface-visibility:hidden; backface-visibility:hidden; }
+.book-turn-front .book-page-snapshot { position:absolute; inset:0; width:100%; height:100%; min-height:0; box-shadow:none; border-radius:inherit; overflow:hidden; background:#f7ead9; }
+.book-turn-front .book-page-snapshot .book-page-scroll { pointer-events:none; }
+.book-turn-reverse { transform-origin:right center; animation-name:book-page-turn-backward; }
+@keyframes book-page-turn-backward { from { transform:rotateY(0deg); } to { transform:rotateY(180deg); } }
+
+/* Little Things: feather only the paper edges, keeping the painted objects intact. */
+.book-little { padding:26px 20px 16px; }
+.book-little .book-chapter-divider { margin:9px auto 11px; }
+.book-little h2 { margin-bottom:8px; }
+.book-little .little-intro { line-height:1.22; }
+.book-little .little-art { width:100%; height:370px; max-width:350px; margin:0 auto; }
+.book-little .little-art>img { width:100%; height:100%; object-fit:cover; object-position:center 52%; mix-blend-mode:multiply;
+  -webkit-mask-image:linear-gradient(to right,transparent,black 9%,black 91%,transparent),linear-gradient(to bottom,transparent,black 8%,black 91%,transparent);
+  -webkit-mask-composite:source-in;
+  mask-image:linear-gradient(to right,transparent,black 9%,black 91%,transparent),linear-gradient(to bottom,transparent,black 8%,black 91%,transparent);
+  mask-composite:intersect;
+}
+.book-little .little-note { max-width:112px; color:#603d3e; font:italic 15px/1.18 'Cormorant Garamond',serif; }
+.book-little .little-note strong { margin-bottom:3px; font:600 10px/1.25 'DM Sans',sans-serif; letter-spacing:.1em; color:#805d36; }
+.book-little .little-badminton { top:30%; left:7%; text-align:left; }
+.book-little .little-moon { top:5%; right:7%; text-align:right; }
+.book-little .little-chai { top:68%; left:7%; text-align:left; }
+.book-little .little-music { top:84%; bottom:auto; right:7%; text-align:right; }
+@media(max-width:374px) { .book-little .little-note { max-width:102px; font-size:14px; } }
+.book-little .little-music { top:89%; right:7%; }
+@media(min-width:768px) { .book-little h2 { font-size:54px; }.book-little .little-art { height:350px; } }
+.book-little .little-music { right:32%; top:88%; text-align:left; }
