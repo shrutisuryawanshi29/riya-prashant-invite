@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom';
 import { PageFlip } from 'page-flip';
 import { wedding } from '../data';
 import { BookPageFrame } from '../components/BookPageFrame';
+import { BookScrollRegion } from '../components/BookScrollRegion';
 import { CelebrationPage, type CelebrationId } from './CelebrationPage';
 import { PlacesChapter, MomentsChapter, InvitationChapter, VenuesChapter, EpilogueChapter } from './BookChapters';
 
@@ -38,6 +39,8 @@ export function StoryBook() {
   const [page, setPage] = useState<Page>(pageFromHash);
   const [turning, setTurning] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrollHintSeen, setScrollHintSeen] = useState(() => { try { return sessionStorage.getItem('storybook-scroll-discovered') === 'yes'; } catch { return false; } });
+  const dismissScrollHint = useMemo(() => () => { setScrollHintSeen(true); try { sessionStorage.setItem('storybook-scroll-discovered', 'yes'); } catch { /* Storage can be unavailable. */ } }, []);
   const menuArea = useRef<HTMLDivElement>(null);
   const menuButton = useRef<HTMLButtonElement>(null);
   const viewport = useRef<HTMLDivElement>(null);
@@ -197,7 +200,7 @@ export function StoryBook() {
     </div>
     {sheets.map((sheet,i)=>createPortal(<div className={"book-sheet-content"+(i===0?" book-sheet-cover":"")}>
       <BookPageFrame/>
-      <div className={'book-page-scroll'+(i===0?' book-page-scroll-cover':'')} tabIndex={i===0?undefined:0} aria-label={i===0?undefined:'Chapter content'}>{chapterContent[i]}</div>
+      <BookScrollRegion cover={i===0} active={page===pages[i] && !turning} hintSeen={scrollHintSeen} onFirstScroll={dismissScrollHint}>{chapterContent[i]}</BookScrollRegion>
       {i>0 && <div className="book-controls"><button aria-label="Previous page" onClick={()=>turn(pages[i-1])}>←</button><span className="book-page-number"><small>{pages[i]==='epilogue'?'Epilogue':`Chapter ${i<5?i:i<10?5:6} of 7`}</small>{String(i+1).padStart(2,'0')} / {pages.length}</span><button aria-label="Next page" disabled={i===pages.length-1} onClick={()=>turn(pages[i+1])}>→</button></div>}
     </div>,sheet,pages[i]))}
     <p className="book-status" aria-live="polite">{labels[pages.indexOf(page)]} · {pages.indexOf(page)+1} of {pages.length}</p>
