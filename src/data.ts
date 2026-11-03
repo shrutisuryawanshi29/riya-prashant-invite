@@ -9,9 +9,9 @@ export const wedding = {
   closing: 'Your presence and blessings will make our celebrations truly special.',
   events: [
     { name: 'Mehendi', date: 'Tuesday, December 1, 2026', time: '11:15 AM onwards', tagline: 'Embracing the Art of Love', venue: null, symbol: '✽' },
-    { name: 'Engagement', date: 'Wednesday, December 2, 2026', time: '10:30 AM onwards', tagline: 'Exchanging the Shine', venue: null, symbol: '◇' },
-    { name: 'Haldi', date: 'Wednesday, December 2, 2026', time: '4:00 PM onwards', tagline: 'Activating the Golden Glow', venue: null, symbol: '✺' },
-    { name: 'Wedding', date: 'Thursday, December 3, 2026', time: 'Wedding programme · 9:00 AM onwards', muhurat: 'Vivah Muhurat · 10:15 AM', tagline: 'Happily Ever After Starts Here', venue: 'Maharaja Celebrations, Besides DMart, Hingna Road, Wanadongri, Nagpur – 441110, Maharashtra, India', symbol: '♧' },
+    { name: 'Engagement', date: 'Wednesday, December 2, 2026', time: '10:30 AM onwards', tagline: 'Exchanging the Shine', venue: 'Maharaja Celebrations, Second Floor, Wanadongri, Nagpur', symbol: '◇' },
+    { name: 'Haldi', date: 'Wednesday, December 2, 2026', time: '4:00 PM onwards', tagline: 'Activating the Golden Glow', venue: 'Maharaja Celebrations, Ground Floor & Terrace, Wanadongri, Nagpur', symbol: '✺' },
+    { name: 'Wedding', date: 'Thursday, December 3, 2026', time: 'Wedding programme · 9:00 AM onwards', muhurat: 'Vivah Muhurat · 10:15 AM', tagline: 'Happily Ever After Starts Here', venue: 'Maharaja Celebrations, Ground Floor, Besides DMart, Hingna Road, Wanadongri, Nagpur – 441110, Maharashtra, India', symbol: '♧' },
     { name: 'Wedding Reception', date: 'Sunday, December 6, 2026', time: '6:00 PM onwards', extra: 'Followed by dinner', tagline: '', venue: 'Nova Banquet Hall, Building No. 4, Infinity Avenue, Sunder Angan Layout, Beverly Park Road, Near Cinemax, Mira Road East, Thane – 401107, Maharashtra, India', symbol: '✧' },
   ],
   venues: [
@@ -22,3 +22,13 @@ export const wedding = {
   portraits: { bride: null as string | null, groom: null as string | null },
   gallery: [null, null, null] as (string | null)[],
 };
+
+// Confirmed celebration locations; the groom's residence has no supplied address.
+export const celebrationArrangements = [
+  { label: "Bride's Mehendi", venue: 'Maharaja Celebrations', floor: 'Third Floor', locality: 'Wanadongri, Nagpur', directionsIndex: 0 },
+  { label: "Groom's Mehendi", venue: "Prashant's Residence", floor: '', locality: '', directionsIndex: null },
+  { label: 'Engagement', venue: 'Maharaja Celebrations', floor: 'Second Floor', locality: 'Wanadongri, Nagpur', directionsIndex: 0 },
+  { label: 'Haldi', venue: 'Maharaja Celebrations', floor: 'Ground Floor & Terrace', locality: 'Wanadongri, Nagpur', directionsIndex: 0 },
+  { label: 'Wedding', venue: 'Maharaja Celebrations', floor: 'Ground Floor', locality: 'Wanadongri, Nagpur', directionsIndex: 0 },
+  { label: 'Reception', venue: 'Nova Banquet Hall', floor: 'Building No. 4', locality: 'Mira Road East, Thane', directionsIndex: 1 },
+] as const;

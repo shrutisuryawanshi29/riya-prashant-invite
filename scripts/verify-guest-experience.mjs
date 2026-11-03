@@ -7,6 +7,14 @@ const calendar = await import(compile(fs.readFileSync('src/utils/calendarUtils.t
 const share = await import(compile(fs.readFileSync('src/utils/shareUtils.ts','utf8').replace('import.meta.env.VITE_SITE_URL', JSON.stringify('https://riya-prashant-invite.vercel.app/'))));
 assert.equal(calendar.utcStamp(calendar.calendarEvents[0].start),'20261203T033000Z');
 assert.equal(calendar.utcStamp(calendar.calendarEvents[1].start),'20261206T123000Z');
+assert.deepEqual(calendar.calendarEvents.slice(2).map(event => calendar.utcStamp(event.start)), ['20261201T054500Z','20261202T050000Z','20261202T103000Z']);
+assert.equal(calendar.calendarEvents[2].location, '');
+assert.match(calendar.calendarEvents[2].description, /Bride's Mehendi:.*Third Floor/);
+assert.match(calendar.calendarEvents[2].description, /Groom's Mehendi: Prashant's Residence/);
+assert.match(calendar.calendarEvents[3].description, /Second Floor/);
+assert.match(calendar.calendarEvents[4].description, /Ground Floor & Terrace/);
+assert.match(calendar.calendarEvents[0].description, /Ground Floor/);
+
 for (const event of calendar.calendarEvents) {
  const url = new URL(calendar.googleCalendarUrl(event));
  assert.equal(url.searchParams.get('ctz'),'Asia/Kolkata');

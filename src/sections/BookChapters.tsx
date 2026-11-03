@@ -1,4 +1,4 @@
-import { wedding as w } from '../data';
+import { wedding as w, celebrationArrangements } from '../data';
 import { moments } from '../data/moments';
 import { WeddingCountdown } from '../components/WeddingCountdown';
 import { CalendarControls, ShareInvitation } from '../components/GuestControls';
@@ -30,17 +30,35 @@ export function MomentsChapter() {
 }
 
 export function InvitationChapter() {
- return <article className="book-new-chapter book-invitation"><ChapterHeading number="Chapter four" title="Until Forever Begins" subtitle="A moment we have been waiting for"/><WeddingCountdown/><p className="book-date">3 December 2026 · 10:15 AM IST</p><p>With divine blessings and the love of our families, we joyfully invite you to celebrate our wedding.</p><details className="book-disclosure"><summary>Read Our Invitation</summary><div className="book-family"><p>{w.invocations[0]}<br/>{w.invocations[1]}</p><p>With the blessings of<br/><strong>{w.grandparents}</strong></p><p>Together with their families, we joyfully invite you to celebrate the wedding of</p><h3>{w.couple.brideFull}</h3><p>Daughter of<br/><strong>{w.parents.bride}</strong></p><h3>{w.couple.groomFull}</h3><p>Son of<br/><strong>{w.parents.groom}</strong></p></div></details></article>;
+ return <article className="book-new-chapter book-invitation"><ChapterHeading number="Chapter four" title="Until Forever Begins" subtitle="A moment we have been waiting for"/><WeddingCountdown/><p className="book-date">3 December 2026 · 10:15 AM IST</p><p>With divine blessings and the love of our families, we joyfully invite you to celebrate our wedding.</p><img className="book-invitation-logo" src="/images/wedding-logo-blended.webp" alt="Prashant and Riya wedding logo" width="768" height="768" loading="lazy" decoding="async"/><details className="book-disclosure"><summary>Read Our Invitation</summary><div className="book-family"><p>{w.invocations[0]}<br/>{w.invocations[1]}</p><p>With the blessings of<br/><strong>{w.grandparents}</strong></p><p>Together with their families, we joyfully invite you to celebrate the wedding of</p><h3>{w.couple.brideFull}</h3><p>Daughter of<br/><strong>{w.parents.bride}</strong></p><h3>{w.couple.groomFull}</h3><p>Son of<br/><strong>{w.parents.groom}</strong></p></div></details></article>;
 }
 
 export function CelebrationsChapter() {
  return <article className="book-new-chapter book-celebrations"><ChapterHeading number="Chapter five" title="The Celebrations" subtitle="Five cherished occasions, one beautiful beginning."/><ol className="book-events">{w.events.map((e,i)=><li key={e.name}><p className="book-event-date">{e.date.replace(/^(\w+), (\w+) (\d+), (\d+)$/, '$1, $3 $2 $4')}</p><h3>{i===4?'Reception':e.name}</h3>{e.tagline && <p className="book-event-tagline">{e.tagline}</p>}<p>{e.time}</p>{'muhurat' in e && <p>{e.muhurat} IST</p>}{'extra' in e && <p>{e.extra}</p>}</li>)}</ol></article>;
 }
 
-export function VenuesChapter() {
- return <article className="book-new-chapter book-venues"><ChapterHeading number="Chapter six" title="Join Us" subtitle="Where our celebrations unfold"/>{w.venues.map((v,i)=><section className="book-venue" key={v.label}><p className="book-label">{v.label}</p><h3>{v.name}</h3><address>{v.lines.map(line=><span key={line}>{line}<br/></span>)}</address><p>{v.date}</p><a className="book-direction" href={'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(v.query)} target="_blank" rel="noreferrer">Get directions ↗</a><CalendarControls index={i}/></section>)}<ShareInvitation/></article>;
+/** Decorative slot for a future approved, atmospheric illustration. */
+function VenueArtworkSlot({src}: {src?:string}) {
+ return <div className="venue-art-slot" aria-hidden="true">{src && <img src={src} alt="" loading="lazy" decoding="async"/>}</div>;
+}
+
+export function VenuesChapter({venueIndex}:{venueIndex:0|1}) {
+ const v=w.venues[venueIndex];
+ const isWedding=venueIndex===0;
+ return <article className={'book-new-chapter book-venues book-venue-page '+(isWedding?'book-venue-nagpur':'book-venue-thane')}>
+  <ChapterHeading number={isWedding?'Join Us':'The Reception'} title={isWedding?'Where Our Celebrations Unfold':'An Evening to Celebrate'}/>
+  <section className="book-venue">
+   <h3>{v.name}</h3><p className="venue-city">{isWedding?'Nagpur':'Mira Road East, Thane'}</p>
+   <VenueArtworkSlot src={isWedding?'/images/venue-nagpur-watercolor.webp':'/images/venue-thane-watercolor.webp'}/>
+   {isWedding ? <p className="venue-event-time">{w.events[3].date}<br/>{w.events[3].time} IST<br/>{w.events[3].muhurat} IST</p> : <p className="venue-event-time">{w.events[4].date}<br/>{w.events[4].time} · {w.events[4].extra}</p>}
+   <address>{v.lines.map(line=><span key={line}>{line}<br/></span>)}</address>
+   {isWedding && <><div className="venue-floor-list"><p className="book-label">Celebration locations</p>{[celebrationArrangements[0],celebrationArrangements[2],celebrationArrangements[3],celebrationArrangements[4]].map(item=><p key={item.label}><strong>{item.label}</strong><span>{item.floor}</span></p>)}</div><p className="venue-residence"><strong>{celebrationArrangements[1].label}</strong> · {celebrationArrangements[1].venue}</p></>}
+   <div className="venue-actions"><a className="book-direction" href={'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(v.query)} target="_blank" rel="noreferrer">Get directions ↗</a><CalendarControls index={venueIndex}/></div>
+  </section>
+  {!isWedding && <ShareInvitation/>}
+ </article>;
 }
 
 export function EpilogueChapter() {
- return <article className="book-new-chapter book-epilogue"><ChapterHeading number="Epilogue" title="Our Next Chapter" subtitle="California awaits our next chapter together."/><div className="book-epilogue-moon" aria-hidden="true">☾</div><p className="book-signature">Riya <span>&amp;</span> Prashant</p><p className="book-blessing">With Love &amp; Blessings</p><p>Kalburgi &amp; Mahant Families</p><p className="book-gifts">Presents Only in Blessings</p></article>;
+ return <article className="book-new-chapter book-epilogue"><ChapterHeading number="Epilogue" title="Our Next Chapter" subtitle="California awaits our next chapter together."/><img className="book-epilogue-art" src="/images/epilogue-california-watercolor.webp" alt="Watercolor of a couple looking toward the California coast and Golden Gate Bridge at sunset" width="890" height="527" loading="lazy" decoding="async"/><p className="book-signature">Riya <span>&amp;</span> Prashant</p><div className="book-epilogue-divider" aria-hidden="true">✦</div><p className="book-blessing">With Love &amp; Blessings</p><p>Kalburgi &amp; Mahant Families</p><p className="book-gifts">Presents Only in Blessings</p></article>;
 }

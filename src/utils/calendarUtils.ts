@@ -1,14 +1,15 @@
-import { wedding } from '../data';
+import { wedding, celebrationArrangements as arrangements } from '../data';
 
-export const calendarEvents = wedding.venues.map((venue, index) => ({
-  id: index === 0 ? 'wedding' : 'reception',
-  title: `Riya & Prashant — ${venue.label}`,
-  start: index === 0 ? '2026-12-03T09:00:00+05:30' : '2026-12-06T18:00:00+05:30',
-  location: [venue.name, ...venue.lines].join(', '),
-  description: index === 0
-    ? 'Wedding programme: 9:00 AM onwards IST. Vivah Muhurat: 10:15 AM IST. End time has not been specified.'
-    : 'Reception: 6:00 PM onwards IST. Followed by dinner. End time has not been specified.',
-}));
+const maharajaAddress = [wedding.venues[0].name, ...wedding.venues[0].lines].join(', ');
+const receptionAddress = [wedding.venues[1].name, ...wedding.venues[1].lines].join(', ');
+// Preserve the wedding/reception indexes used by the existing venues chapter.
+export const calendarEvents = [
+  { id:'wedding', title:'Riya & Prashant — Wedding Ceremony', start:'2026-12-03T09:00:00+05:30', location:maharajaAddress, description:`Wedding programme: 9:00 AM onwards IST. Vivah Muhurat: 10:15 AM IST. ${arrangements[4].venue}, ${arrangements[4].floor}. End time has not been specified.` },
+  { id:'reception', title:'Riya & Prashant — Wedding Reception', start:'2026-12-06T18:00:00+05:30', location:receptionAddress, description:`Reception: 6:00 PM onwards IST. Followed by dinner. ${arrangements[5].venue}, ${arrangements[5].floor}. End time has not been specified.` },
+  { id:'mehendi', title:'Riya & Prashant — Mehendi', start:'2026-12-01T11:15:00+05:30', location:'', description:`Mehendi: 11:15 AM onwards IST. Bride's Mehendi: ${maharajaAddress}, ${arrangements[0].floor}. Groom's Mehendi: ${arrangements[1].venue}; address not supplied. End time has not been specified.` },
+  { id:'engagement', title:'Riya & Prashant — Engagement', start:'2026-12-02T10:30:00+05:30', location:maharajaAddress, description:`Engagement: 10:30 AM onwards IST. ${arrangements[2].venue}, ${arrangements[2].floor}. End time has not been specified.` },
+  { id:'haldi', title:'Riya & Prashant — Haldi', start:'2026-12-02T16:00:00+05:30', location:maharajaAddress, description:`Haldi: 4:00 PM onwards IST. ${arrangements[3].venue}, ${arrangements[3].floor}. End time has not been specified.` },
+];
 export type CalendarEvent = typeof calendarEvents[number];
 export const utcStamp = (date: string | Date) => new Date(date).toISOString().replace(/[-:]/g, '').replace(/\.\d{3}Z$/, 'Z');
 export function googleCalendarUrl(event: CalendarEvent) {
