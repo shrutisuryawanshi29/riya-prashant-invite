@@ -8,15 +8,15 @@ function ChapterHeading({ number, title, subtitle }: {number:string; title:strin
 }
 
 export function PlacesChapter() {
- const cities = [ ['Mumbai','Her beginnings','mumbai'], ['Nagpur','His beginnings','nagpur'], ['California','Their next chapter','california'] ];
- return <article className="book-new-chapter book-places"><ChapterHeading number="Chapter two" title="Three Places, One Forever" subtitle="Different cities. Shared dreams. A lifetime together."/><div className="book-city-list">{cities.map(([name, caption, image]) => <figure key={name}><img src={'/images/three-places-'+image+'.webp'} loading="lazy" width="500" height="500" alt={'Watercolor illustration of '+name}/><figcaption><h3>{name}</h3><p>{caption}</p></figcaption></figure>)}</div></article>;
+ const cities = [ ['Mumbai','Riya’s beginnings','mumbai'], ['Nagpur','Prashant’s beginnings','nagpur'], ['San Francisco','Our next chapter','california'] ];
+ return <article className="book-new-chapter book-places"><ChapterHeading number="Bonus chapter two" title="Three Places, One Forever" subtitle="Different cities. Shared dreams. A lifetime together."/><div className="book-city-list">{cities.map(([name, caption, image]) => <figure key={name}><img src={'/images/three-places-'+image+'.webp'} loading="lazy" width="500" height="500" alt={'Watercolor illustration of '+name}/><figcaption><h3>{name}</h3><p>{caption}</p></figcaption></figure>)}</div></article>;
 }
 
 export function MomentsChapter() {
  const [featured, first, second, third, ...more] = moments;
  return <article className="book-new-chapter book-moments scrapbook">
    <svg className="scrapbook-botanical" viewBox="0 0 80 135" aria-hidden="true" fill="none"><path d="M6 130Q23 85 57 9M17 98Q3 87 8 74Q24 79 22 90M28 76Q17 62 24 51Q38 59 33 68M38 55Q31 41 39 30Q49 39 44 47M49 33Q45 20 54 12Q61 20 55 28" stroke="currentColor" strokeWidth="1.2"/><circle cx="57" cy="9" r="3" fill="currentColor"/><circle cx="25" cy="51" r="2.5" fill="currentColor"/><circle cx="8" cy="74" r="2.5" fill="currentColor"/></svg>
-   <ChapterHeading number="Chapter three" title="Our Moments" subtitle="A few frames from our story."/>
+   <ChapterHeading number="Chapter one" title="Our Moments" subtitle="A few frames from our story."/>
    <div className="scrapbook-composition">
      <figure className="scrapbook-featured"><div className="scrapbook-paper"><img src={featured.src} alt={featured.alt} width={featured.width} height={featured.height} decoding="async" /></div><figcaption className="scrapbook-note">Some moments say everything without a word.<span aria-hidden="true"> ♡</span></figcaption></figure>
      <div className="scrapbook-collage">
@@ -30,7 +30,7 @@ export function MomentsChapter() {
 }
 
 export function InvitationChapter() {
- return <article className="book-new-chapter book-invitation"><ChapterHeading number="Chapter four" title="Until Forever Begins" subtitle="A moment we have been waiting for"/><WeddingCountdown/><p className="book-date">3 December 2026 · 10:15 AM IST</p><p>With divine blessings and the love of our families, we joyfully invite you to celebrate our wedding.</p><img className="book-invitation-logo" src="/images/wedding-logo-blended.webp" alt="Prashant and Riya wedding logo" width="768" height="768" loading="lazy" decoding="async"/><details className="book-disclosure"><summary>Read Our Invitation</summary><div className="book-family"><p>{w.invocations[0]}<br/>{w.invocations[1]}</p><p>With the blessings of<br/><strong>{w.grandparents}</strong></p><p>Together with their families, we joyfully invite you to celebrate the wedding of</p><h3>{w.couple.brideFull}</h3><p>Daughter of<br/><strong>{w.parents.bride}</strong></p><h3>{w.couple.groomFull}</h3><p>Son of<br/><strong>{w.parents.groom}</strong></p></div></details></article>;
+ return <article className="book-new-chapter book-invitation"><ChapterHeading number="Chapter two" title="Until Forever Begins" subtitle="A moment we have been waiting for"/><WeddingCountdown/><div className="wedding-date-highlight"><p>Thursday, 3 December 2026</p><strong>10:15 AM IST <span>— Vivah Muhurat</span></strong></div><p>With divine blessings and the love of our families, we joyfully invite you to celebrate our wedding.</p><img className="book-invitation-logo" src="/images/wedding-logo-blended.webp" alt="Prashant and Riya wedding logo" width="768" height="768" loading="lazy" decoding="async"/><details className="book-disclosure"><summary>Read Our Invitation</summary><div className="book-family"><p>{w.invocations[0]}<br/>{w.invocations[1]}</p><p>With the blessings of<br/><strong>{w.grandparents}</strong></p><p>Together with their families, we joyfully invite you to celebrate the wedding of</p><h3>{w.couple.brideFull}</h3><p>Daughter of<br/><strong>{w.parents.bride}</strong></p><h3>{w.couple.groomFull}</h3><p>Son of<br/><strong>{w.parents.groom}</strong></p></div></details></article>;
 }
 
 export function CelebrationsChapter() {
@@ -60,5 +60,13 @@ export function VenuesChapter({venueIndex}:{venueIndex:0|1}) {
 }
 
 export function EpilogueChapter() {
- return <article className="book-new-chapter book-epilogue"><ChapterHeading number="Epilogue" title="Our Next Chapter" subtitle="California awaits our next chapter together."/><img className="book-epilogue-art" src="/images/epilogue-california-watercolor.webp" alt="Watercolor of a couple looking toward the California coast and Golden Gate Bridge at sunset" width="890" height="527" loading="lazy" decoding="async"/><p className="book-signature">Riya <span>&amp;</span> Prashant</p><div className="book-epilogue-divider" aria-hidden="true">✦</div><p className="book-blessing">With Love &amp; Blessings</p><p>Kalburgi &amp; Mahant Families</p><p className="book-gifts">Presents Only in Blessings</p></article>;
+ return <article className="book-new-chapter book-epilogue unified-epilogue">
+  <ChapterHeading number="Epilogue" title="Our Story, Our Forever" subtitle="The little things, the places that matter, and all that lies ahead."/>
+  <img className="epilogue-moments-art" src="/images/epilogue-interests.webp" alt="Watercolor of badminton, chai, books, music and the moon" width="900" height="900" loading="lazy" decoding="async"/>
+  <p className="epilogue-story-copy">From badminton rallies to chai, books, music, and moonlight, the little things have made our story uniquely ours.</p>
+  <img className="epilogue-places-art" src="/images/epilogue-places.webp" alt="Watercolor landmarks representing Mumbai, Nagpur and San Francisco" width="1400" height="467" loading="lazy" decoding="async"/>
+  <div className="epilogue-places-caption"><p>Mumbai <span aria-hidden="true">·</span> Nagpur <span aria-hidden="true">·</span> San Francisco</p><p>Three Cities. One Forever.</p></div>
+  <img className="book-epilogue-art" src="/images/epilogue-california-watercolor.webp" alt="Watercolor of a couple looking toward the Golden Gate Bridge at sunset" width="890" height="527" loading="lazy" decoding="async"/>
+  <p className="book-signature">Riya <span>&amp;</span> Prashant</p><div className="book-epilogue-divider" aria-hidden="true">✦</div><p className="book-blessing">With Love &amp; Blessings</p><p>Kalburgi &amp; Mahant Families</p><p className="book-gifts">Presents Only in Blessings</p>
+ </article>;
 }

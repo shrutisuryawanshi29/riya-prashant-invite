@@ -18,9 +18,10 @@ export function CelebrationPage({ id }: { id: CelebrationId }) {
   const title = id === 'wedding' ? 'The Wedding' : id === 'reception' ? 'Reception' : event.name;
   return <article className={'book-event-page book-event-'+id}>
     <header><p className="book-label">Our Wedding Celebrations</p><div className="book-chapter-divider" aria-hidden="true">✦</div><h2>{title}</h2>{event.tagline && <p className="celebration-tagline">{event.tagline}</p>}</header>
+    <div className="celebration-schedule"><p className="celebration-date">{date}</p>{id === 'wedding' ? <><p className="celebration-programme">9:00 AM — Programme begins</p><p className="celebration-time celebration-muhurat">10:15 AM IST <span>— Vivah Muhurat</span></p></> : <p className="celebration-time">{event.time} · IST</p>}{'extra' in event && <p className="celebration-extra">{event.extra}</p>}</div>
     <img className="celebration-art" src={'/images/celebration-'+id+'.webp'} alt={'Watercolor illustration for '+title} width="900" height="1125" loading="eager" decoding="async"/>
-    <div className="celebration-details"><p className="celebration-date">{date}</p>{id === 'wedding' ? <><p>Wedding programme · 9:00 AM IST onwards</p><p className="celebration-muhurat">Vivah Muhurat · 10:15 AM IST</p></> : <p>{event.time}</p>}{'extra' in event && <p>{event.extra}</p>}
-      <div className="celebration-venues">{venues.map(venue=><section className="celebration-venue" key={venue.label}>{id === 'mehendi' && <p className="book-label">{venue.label}</p>}<h3>{venue.venue}</h3>{venue.floor && <p>{venue.floor}</p>}{venue.locality && <p>{venue.locality}</p>}{venue.directionsIndex !== null && <Directions index={venue.directionsIndex}/>}</section>)}</div>
+    <div className="celebration-details">
+      <div className="celebration-venues" data-venue-details>{venues.map(venue=><section className="celebration-venue" key={venue.label}>{id === 'mehendi' && <p className="book-label">{venue.label}</p>}<h3 tabIndex={-1}>{venue.venue}</h3>{venue.floor && <p>{venue.floor}</p>}{venue.locality && <p>{venue.locality}</p>}{venue.directionsIndex !== null && <Directions index={venue.directionsIndex}/>}</section>)}</div>
       <CalendarControls index={calendarIndexes[index]}/>
     </div>
   </article>;

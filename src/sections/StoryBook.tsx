@@ -5,16 +5,16 @@ import { wedding } from '../data';
 import { BookPageFrame } from '../components/BookPageFrame';
 import { BookScrollRegion } from '../components/BookScrollRegion';
 import { CelebrationPage, type CelebrationId } from './CelebrationPage';
-import { PlacesChapter, MomentsChapter, InvitationChapter, VenuesChapter, EpilogueChapter } from './BookChapters';
+import { MomentsChapter, InvitationChapter, VenuesChapter, EpilogueChapter } from './BookChapters';
 
-type Page = 'cover' | 'little' | 'places' | 'moments' | 'invitation' | CelebrationId | 'venues' | 'venue-reception' | 'epilogue';
-const pages: Page[] = ['cover', 'little', 'places', 'moments', 'invitation', 'mehendi', 'engagement', 'haldi', 'wedding', 'reception', 'venues', 'venue-reception', 'epilogue'];
-const labels = ['Cover', 'The Little Things', 'Three Places', 'Our Moments', 'Until Forever', 'Mehendi', 'Engagement', 'Haldi', 'Wedding', 'Reception', 'Join Us · Nagpur', 'Join Us · Thane', 'Our Next Chapter'];
-function pageFromHash(): Page { const key = window.location.hash.slice(1); return pages.includes(key as Page) ? key as Page : key === 'story' || key === 'chapter' ? 'little' : key === 'celebrations' ? 'mehendi' : 'cover'; }
+type Page = 'cover' | 'moments' | 'invitation' | CelebrationId | 'venues' | 'venue-reception' | 'epilogue';
+const pages: Page[] = ['cover', 'moments', 'invitation', 'mehendi', 'engagement', 'haldi', 'wedding', 'reception', 'venues', 'venue-reception', 'epilogue'];
+const labels = ['Cover', 'Our Moments', 'Until Forever', 'Mehendi', 'Engagement', 'Haldi', 'Wedding', 'Reception', 'Join Us · Nagpur', 'Join Us · Thane', 'Our Story, Our Forever'];
+function pageFromHash(): Page { const key = window.location.hash.slice(1); return pages.includes(key as Page) ? key as Page : key === 'celebrations' ? 'mehendi' : ['little','places','story','chapter'].includes(key) ? 'epilogue' : 'cover'; }
 
 function BookCover({ open }: { open: () => void }) {
   return <div className="book-cover-content">
-    <div className="book-cover-heading"><p className="book-label">A story under the same moon</p><h1>{wedding.couple.bride} <span>&amp;</span><br />{wedding.couple.groom}</h1><span className="book-moon" aria-hidden="true">☾</span><p className="book-cover-subtitle">A story that started with a game<br />and turned into forever.</p><p className="book-cover-date">3 December 2026 · Nagpur</p></div>
+    <div className="book-cover-heading"><h1>{wedding.couple.bride} <span>&amp;</span><br />{wedding.couple.groom}</h1><svg className="book-cover-name-flourish" viewBox="0 0 180 18" fill="none" aria-hidden="true"><path d="M2 12c25-10 42-9 64-3m48 0c22-6 39-7 64 3M84 8c0-6 6-6 6-2 0-4 6-4 6 2 0 4-6 8-6 8s-6-4-6-8Z" stroke="currentColor" strokeWidth="1.1" strokeLinecap="round"/></svg><p className="book-cover-subtitle">A love story blossoming into forever.</p><p className="book-cover-date">3 December 2026 · Nagpur</p></div>
     <div className="book-cover-photo"><div className="book-photo-mat"><img src="/images/riya-prashant-photograph.webp" width="576" height="1024" alt="Riya and Prashant together by the sea at sunset" /></div></div>
     <svg className="book-cover-trail" viewBox="0 0 400 100" fill="none" aria-hidden="true"><path d="M15 83C80 0 151 61 225 55c38-3 41-42 55-34 12 7-2 25-12 34 16 5 45 5 93-32" stroke="currentColor" strokeDasharray="3 4" strokeWidth="1.4"/><path d="M19 80l-7-12 12 5-5 7Zm-7-12-6-8 12 3 6 10" stroke="currentColor" strokeWidth="1.2"/></svg>
     <button className="book-open" onClick={open}>Open our story <span aria-hidden="true">→</span></button>
@@ -23,13 +23,13 @@ function BookCover({ open }: { open: () => void }) {
 
 export function LittleThings() {
   return <article className="book-chapter-content book-little">
-    <p className="book-label">Chapter one</p><div className="book-chapter-divider" aria-hidden="true">✦</div>
-    <h2>The Little<br />Things</h2><p className="little-intro">It’s the little things that make their story their own.</p>
+    <p className="book-label">Bonus chapter one</p><div className="book-chapter-divider" aria-hidden="true">✦</div>
+    <h2>The Little<br />Things</h2><p className="little-intro">It’s the little things that make our story our own.</p>
     <div className="little-art"><img src="/images/watercolor-story-mobile.webp" alt="" width="1122" height="1402"/><svg className="little-trail" viewBox="0 0 320 390" fill="none" aria-hidden="true"><path d="M30 90C55 20 152 25 164 100S60 210 115 270 260 260 276 360" stroke="currentColor" strokeWidth="1" strokeDasharray="3 5"/></svg>
-      <p className="little-note little-badminton"><strong>Badminton</strong>Where their story began.</p>
-      <p className="little-note little-moon"><strong>Moon</strong>Their favorite symbol of love.</p>
-      <p className="little-note little-chai"><strong>Chai</strong>The little moments they love sharing.</p>
-      <p className="little-note little-music"><strong>Music</strong>The soundtrack of their togetherness.</p>
+      <p className="little-note little-badminton"><strong>Badminton</strong>Where our story began.</p>
+      <p className="little-note little-moon"><strong>Moon</strong>Our favorite symbol of love.</p>
+      <p className="little-note little-chai"><strong>Chai</strong>The little moments we love sharing.</p>
+      <p className="little-note little-music"><strong>Music</strong>The soundtrack of our togetherness.</p>
     </div>
 
   </article>;
@@ -175,9 +175,7 @@ export function StoryBook() {
     };
   }, [sheets]);
   function content(which: Page) {switch(which) {
-    case 'cover': return <BookCover open={() => turn('little')}/>;
-    case 'little': return <LittleThings/>;
-    case 'places': return <PlacesChapter/>;
+    case 'cover': return <BookCover open={() => turn('moments')}/>;
     case 'moments': return <MomentsChapter/>;
     case 'invitation': return <InvitationChapter/>;
     case 'mehendi': case 'engagement': case 'haldi': case 'wedding': case 'reception': return <CelebrationPage id={which}/>;
@@ -188,8 +186,6 @@ export function StoryBook() {
   // Keep the chapter React elements stable while the renderer animates cloned paper.
   const chapterContent = useMemo(() => pages.map(content), []);
   return <section className="storybook" aria-label="Our storybook">
-    <nav className="book-site-nav" aria-label="Wedding navigation">{(['invitation','mehendi','venues'] as Page[]).map((target,i)=><a key={target} href={'#'+target} onClick={event=>{event.preventDefault();turn(target);}}>{['Invitation','Celebrations','Venues'][i]}</a>)}</nav>
-    <div className="book-index"><label htmlFor="chapter-index">Chapter index</label><select id="chapter-index" value={page} disabled={turning} onChange={event=>turn(event.target.value as Page)}>{pages.map((id,i)=><option key={id} value={id}>{labels[i]}</option>)}</select></div>
     <div className="book-stage book-library-stage">
       <div className="book-spine" aria-hidden="true"/><div className="book-resting-sheets" aria-hidden="true"/>
       <div className={'chapter-menu'+(page==='cover'?' chapter-menu-cover':'')} ref={menuArea}>
@@ -197,11 +193,12 @@ export function StoryBook() {
         {menuOpen && <nav className="chapter-menu-panel" id="mobile-chapter-menu" aria-label="Choose a chapter">{pages.map((id,i)=><button key={id} aria-current={id===page?'page':undefined} onClick={()=>{if(id===page){setMenuOpen(false);menuButton.current?.focus();}else turn(id);}}>{labels[i]}</button>)}</nav>}
       </div>
       <div className="book-flip-viewport" ref={viewport}/>
+
     </div>
     {sheets.map((sheet,i)=>createPortal(<div className={"book-sheet-content"+(i===0?" book-sheet-cover":"")}>
       <BookPageFrame/>
-      <BookScrollRegion cover={i===0} active={page===pages[i] && !turning} hintSeen={scrollHintSeen} onFirstScroll={dismissScrollHint}>{chapterContent[i]}</BookScrollRegion>
-      {i>0 && <div className="book-controls"><button aria-label="Previous page" onClick={()=>turn(pages[i-1])}>←</button><span className="book-page-number"><small>{pages[i]==='epilogue'?'Epilogue':`Chapter ${i<5?i:i<10?5:6} of 7`}</small>{String(i+1).padStart(2,'0')} / {pages.length}</span><button aria-label="Next page" disabled={i===pages.length-1} onClick={()=>turn(pages[i+1])}>→</button></div>}
+      <BookScrollRegion cover={i===0} active={page===pages[i] && !turning} venueCue={['mehendi','engagement','haldi','wedding','reception'].includes(pages[i])} hintSeen={scrollHintSeen} onFirstScroll={dismissScrollHint}>{chapterContent[i]}</BookScrollRegion>
+      {i>0 && <div className="book-controls"><button aria-label="Previous page" onClick={()=>turn(pages[i-1])}>←</button><span className="book-page-number"><small>{pages[i]==='epilogue'?'Epilogue':`Chapter ${i===1?1:i===2?2:i<=7?3:4} of 4`}</small>{String(i+1).padStart(2,'0')} / {pages.length}</span><button aria-label="Next page" disabled={i===pages.length-1} onClick={()=>turn(pages[i+1])}>→</button></div>}
     </div>,sheet,pages[i]))}
     <p className="book-status" aria-live="polite">{labels[pages.indexOf(page)]} · {pages.indexOf(page)+1} of {pages.length}</p>
   </section>;
