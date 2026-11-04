@@ -2,6 +2,7 @@ import { wedding as w, celebrationArrangements } from '../data';
 import { moments } from '../data/moments';
 import { WeddingCountdown } from '../components/WeddingCountdown';
 import { CalendarControls, ShareInvitation } from '../components/GuestControls';
+import { ScheduleBlock } from '../components/ScheduleBlock';
 
 function ChapterHeading({ number, title, subtitle }: {number:string; title:string; subtitle?:string}) {
   return <header className="book-new-heading"><p className="book-label">{number}</p><div className="book-chapter-divider" aria-hidden="true">✦</div><h2>{title}</h2>{subtitle && <p>{subtitle}</p>}</header>;
@@ -30,7 +31,7 @@ export function MomentsChapter() {
 }
 
 export function InvitationChapter() {
- return <article className="book-new-chapter book-invitation"><ChapterHeading number="Chapter two" title="Until Forever Begins" subtitle="A moment we have been waiting for"/><WeddingCountdown/><div className="wedding-date-highlight"><p>Thursday, 3 December 2026</p><strong>10:15 AM IST <span>— Vivah Muhurat</span></strong></div><p>With divine blessings and the love of our families, we joyfully invite you to celebrate our wedding.</p><img className="book-invitation-logo" src="/images/wedding-logo-blended.webp" alt="Prashant and Riya wedding logo" width="768" height="768" loading="lazy" decoding="async"/><details className="book-disclosure"><summary>Read Our Invitation</summary><div className="book-family"><p>{w.invocations[0]}<br/>{w.invocations[1]}</p><p>With the blessings of<br/><strong>{w.grandparents}</strong></p><p>Together with their families, we joyfully invite you to celebrate the wedding of</p><h3>{w.couple.brideFull}</h3><p>Daughter of<br/><strong>{w.parents.bride}</strong></p><h3>{w.couple.groomFull}</h3><p>Son of<br/><strong>{w.parents.groom}</strong></p></div></details></article>;
+ return <article className="book-new-chapter book-invitation"><ChapterHeading number="Chapter two" title="Until Forever Begins" subtitle="A moment we have been waiting for"/><WeddingCountdown/><ScheduleBlock date="Thursday, 3 December 2026" time="10:15 AM IST" timeNote="Vivah Muhurat"/><p>With divine blessings and the love of our families, we joyfully invite you to celebrate our wedding.</p><img className="book-invitation-logo" src="/images/wedding-logo-blended.webp" alt="Prashant and Riya wedding logo" width="768" height="768" loading="lazy" decoding="async"/><details className="book-disclosure"><summary>Read Our Invitation</summary><div className="book-family"><p>{w.invocations[0]}<br/>{w.invocations[1]}</p><p>With the blessings of<br/><strong>{w.grandparents}</strong></p><p>Together with their families, we joyfully invite you to celebrate the wedding of</p><h3>{w.couple.bride}</h3><p>Daughter of<br/><strong>{w.parents.bride}</strong></p><h3>{w.couple.groom}</h3><p>Son of<br/><strong>{w.parents.groom}</strong></p></div></details></article>;
 }
 
 export function CelebrationsChapter() {
@@ -49,10 +50,10 @@ export function VenuesChapter({venueIndex}:{venueIndex:0|1}) {
   <ChapterHeading number={isWedding?'Join Us':'The Reception'} title={isWedding?'Where Our Celebrations Unfold':'An Evening to Celebrate'}/>
   <section className="book-venue">
    <h3>{v.name}</h3><p className="venue-city">{isWedding?'Nagpur':'Mira Road East, Thane'}</p>
+   <ScheduleBlock date={isWedding ? 'Thursday, 3 December 2026' : 'Sunday, 6 December 2026'} time={isWedding ? '10:15 AM IST' : '6:00 PM'} timeNote={isWedding ? 'Vivah Muhurat' : 'Onwards · IST'} programme={isWedding ? 'Programme begins · 9:00 AM' : undefined} extra={isWedding ? undefined : 'Followed by dinner'}/>
    <VenueArtworkSlot src={isWedding?'/images/venue-nagpur-watercolor.webp':'/images/venue-thane-watercolor.webp'}/>
-   {isWedding ? <p className="venue-event-time">{w.events[3].date}<br/>{w.events[3].time} IST<br/>{w.events[3].muhurat} IST</p> : <p className="venue-event-time">{w.events[4].date}<br/>{w.events[4].time} · {w.events[4].extra}</p>}
-   <address>{v.lines.map(line=><span key={line}>{line}<br/></span>)}</address>
-   {isWedding && <><div className="venue-floor-list"><p className="book-label">Celebration locations</p>{[celebrationArrangements[0],celebrationArrangements[2],celebrationArrangements[3],celebrationArrangements[4]].map(item=><p key={item.label}><strong>{item.label}</strong><span>{item.floor}</span></p>)}</div><p className="venue-residence"><strong>{celebrationArrangements[1].label}</strong> · {celebrationArrangements[1].venue}</p></>}
+   <address data-scroll-detail>{v.lines.map(line=><span key={line}>{line}<br/></span>)}</address>
+   {isWedding && <><div className="venue-floor-list" data-scroll-detail><p className="book-label">Celebration locations</p>{[celebrationArrangements[0],celebrationArrangements[2],celebrationArrangements[3],celebrationArrangements[4]].map(item=><p key={item.label}><strong>{item.label}</strong><span>{item.floor}</span></p>)}</div><p className="venue-residence" data-scroll-detail><strong>{celebrationArrangements[1].label}</strong> · {celebrationArrangements[1].venue}</p></>}
    <div className="venue-actions"><a className="book-direction" href={'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(v.query)} target="_blank" rel="noreferrer">Get directions ↗</a><CalendarControls index={venueIndex}/></div>
   </section>
   {!isWedding && <ShareInvitation/>}

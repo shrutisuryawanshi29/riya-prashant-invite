@@ -197,7 +197,7 @@ export function StoryBook() {
     </div>
     {sheets.map((sheet,i)=>createPortal(<div className={"book-sheet-content"+(i===0?" book-sheet-cover":"")}>
       <BookPageFrame/>
-      <BookScrollRegion cover={i===0} active={page===pages[i] && !turning} venueCue={['mehendi','engagement','haldi','wedding','reception'].includes(pages[i])} hintSeen={scrollHintSeen} onFirstScroll={dismissScrollHint}>{chapterContent[i]}</BookScrollRegion>
+      <BookScrollRegion cover={i===0} active={page===pages[i] && !turning} venueCue={['mehendi','engagement','haldi','wedding','reception','venues','venue-reception'].includes(pages[i])} hintSeen={scrollHintSeen} onFirstScroll={dismissScrollHint}>{chapterContent[i]}</BookScrollRegion>
       {i>0 && <div className="book-controls"><button aria-label="Previous page" onClick={()=>turn(pages[i-1])}>←</button><span className="book-page-number"><small>{pages[i]==='epilogue'?'Epilogue':`Chapter ${i===1?1:i===2?2:i<=7?3:4} of 4`}</small>{String(i+1).padStart(2,'0')} / {pages.length}</span><button aria-label="Next page" disabled={i===pages.length-1} onClick={()=>turn(pages[i+1])}>→</button></div>}
     </div>,sheet,pages[i]))}
     <p className="book-status" aria-live="polite">{labels[pages.indexOf(page)]} · {pages.indexOf(page)+1} of {pages.length}</p>

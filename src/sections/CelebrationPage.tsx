@@ -1,5 +1,6 @@
 import { wedding, celebrationArrangements as arrangements } from '../data';
 import { CalendarControls } from '../components/GuestControls';
+import { ScheduleBlock } from '../components/ScheduleBlock';
 
 export const celebrationIds = ['mehendi', 'engagement', 'haldi', 'wedding', 'reception'] as const;
 export type CelebrationId = typeof celebrationIds[number];
@@ -18,7 +19,7 @@ export function CelebrationPage({ id }: { id: CelebrationId }) {
   const title = id === 'wedding' ? 'The Wedding' : id === 'reception' ? 'Reception' : event.name;
   return <article className={'book-event-page book-event-'+id}>
     <header><p className="book-label">Our Wedding Celebrations</p><div className="book-chapter-divider" aria-hidden="true">✦</div><h2>{title}</h2>{event.tagline && <p className="celebration-tagline">{event.tagline}</p>}</header>
-    <div className="celebration-schedule"><p className="celebration-date">{date}</p>{id === 'wedding' ? <><p className="celebration-programme">9:00 AM — Programme begins</p><p className="celebration-time celebration-muhurat">10:15 AM IST <span>— Vivah Muhurat</span></p></> : <p className="celebration-time">{event.time} · IST</p>}{'extra' in event && <p className="celebration-extra">{event.extra}</p>}</div>
+    <ScheduleBlock date={date} time={id === 'wedding' ? '10:15 AM IST' : event.time.replace(/\s+onwards$/i, '')} timeNote={id === 'wedding' ? 'Vivah Muhurat' : 'Onwards · IST'} programme={id === 'wedding' ? 'Programme begins · 9:00 AM' : undefined} extra={'extra' in event ? event.extra : undefined}/>
     <img className="celebration-art" src={'/images/celebration-'+id+'.webp'} alt={'Watercolor illustration for '+title} width="900" height="1125" loading="eager" decoding="async"/>
     <div className="celebration-details">
       <div className="celebration-venues" data-venue-details>{venues.map(venue=><section className="celebration-venue" key={venue.label}>{id === 'mehendi' && <p className="book-label">{venue.label}</p>}<h3 tabIndex={-1}>{venue.venue}</h3>{venue.floor && <p>{venue.floor}</p>}{venue.locality && <p>{venue.locality}</p>}{venue.directionsIndex !== null && <Directions index={venue.directionsIndex}/>}</section>)}</div>

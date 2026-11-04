@@ -2,6 +2,8 @@ import { useEffect, useRef, useState, type ReactNode } from 'react';
 
 function nextHiddenVenue(node: HTMLElement): HTMLElement | undefined {
   const bottom = node.getBoundingClientRect().bottom - 2;
+  const venueDetails = Array.from(node.querySelectorAll<HTMLElement>('[data-scroll-detail]'));
+  if (venueDetails.length) return venueDetails.find(detail => detail.getBoundingClientRect().bottom > bottom);
   return Array.from(node.querySelectorAll<HTMLElement>('[data-venue-details] .celebration-venue')).find(venue => {
     const details = venue.querySelectorAll<HTMLElement>('h3 ~ p');
     const lastDetail = details.item(details.length - 1) || venue.querySelector<HTMLElement>('h3');
@@ -51,7 +53,7 @@ export function BookScrollRegion({ children, cover, active, venueCue, hintSeen, 
       venue.querySelector<HTMLElement>('h3')?.focus({ preventScroll: true });
       const target = node.scrollTop + venue.getBoundingClientRect().top - node.getBoundingClientRect().top - node.clientTop - 12;
       node.scrollTo({ top: Math.max(0, target), behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
-    }}><span aria-hidden="true">⌄</span> More details below</button>}</div>}
-    {active && metrics.overflow && !hintSeen && !(venueCue && venueBelow) && <div className="book-scroll-hint" aria-hidden="true"><span>↓</span> Swipe up to read more</div>}
+    }}><span className="book-venue-cue-label">Discover the details <span className="book-venue-cue-ornament" aria-hidden="true">✧</span></span><span className="book-venue-cue-arrow" aria-hidden="true">⌄</span></button>}</div>}
+    {active && metrics.below && !hintSeen && !(venueCue && venueBelow) && <div className="book-scroll-hint" aria-hidden="true"><span>↓</span> Swipe up to read more</div>}
   </div>;
 }
