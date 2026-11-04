@@ -12,7 +12,7 @@ export function ShareInvitation() {
   async function share() {
     if (!canonicalUrl) return;
     if (navigator.share) {
-      try { await navigator.share({title: 'Riya & Prashant | Royal Wedding Invitation', text: invitationShareText, url: canonicalUrl}); return; }
+      try { await navigator.share({title: 'Riya & Prashant — Our Wedding Story', text: invitationShareText, url: canonicalUrl}); return; }
       catch (error) { if (error instanceof DOMException && error.name === 'AbortError') return; }
     }
     setFallback(true);

@@ -13,10 +13,10 @@ export default defineConfig(({mode}) => {
     name: 'invitation-social-metadata',
     transformIndexHtml() {
       if (!canonical) return [];
-      const image = new URL('images/social-preview.jpg', canonical.href.endsWith('/') ? canonical : canonical.href + '/').href;
+      const image = new URL('images/riya-prashant-social-preview.jpg', canonical.href.endsWith('/') ? canonical : canonical.href + '/').href;
       return [
         {tag: 'link', attrs: {rel: 'canonical', href: canonical.href}, injectTo: 'head' as const},
-        ...[['og:url', canonical.href], ['og:image', image], ['og:image:width', '1200'], ['og:image:height', '630'], ['og:image:alt', 'Riya and Prashant — Royal Wedding Invitation, 3 December 2026'], ['twitter:image', image]].map(([property,content])=>({tag:'meta',attrs:{[property.startsWith('twitter:')?'name':'property']:property,content},injectTo:'head' as const})),
+        ...[['og:url', canonical.href], ['og:image', image], ['og:image:width', '1200'], ['og:image:height', '630'], ['og:image:alt', 'Riya and Prashant at the coast — Our Wedding Story, 3 December 2026 in Nagpur'], ['twitter:image', image]].map(([property,content])=>({tag:'meta',attrs:{[property.startsWith('twitter:')?'name':'property']:property,content},injectTo:'head' as const})),
       ];
     },
   }]};
