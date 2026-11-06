@@ -6,7 +6,7 @@ const receptionAddress = [wedding.venues[1].name, ...wedding.venues[1].lines].jo
 export const calendarEvents = [
   { id:'wedding', title:'Riya & Prashant — Wedding Ceremony', start:'2026-12-03T09:00:00+05:30', location:maharajaAddress, description:`Wedding programme: 9:00 AM onwards IST. Vivah Muhurat: 10:15 AM IST. ${arrangements[4].venue}, ${arrangements[4].floor}. End time has not been specified.` },
   { id:'reception', title:'Riya & Prashant — Wedding Reception', start:'2026-12-06T18:00:00+05:30', location:receptionAddress, description:`Reception: 6:00 PM onwards IST. Followed by dinner. ${arrangements[5].venue}, ${arrangements[5].floor}. End time has not been specified.` },
-  { id:'mehendi', title:'Riya & Prashant — Mehendi', start:'2026-12-01T11:15:00+05:30', location:'', description:`Mehendi: 11:15 AM onwards IST. Bride's Mehendi: ${maharajaAddress}, ${arrangements[0].floor}. Groom's Mehendi: ${arrangements[1].venue}; address not supplied. End time has not been specified.` },
+  { id:'mehendi', title:"Riya & Prashant — Bride's Mehendi", start:'2026-12-01T11:15:00+05:30', location:maharajaAddress, description:`Bride's Mehendi: 11:15 AM onwards IST. ${maharajaAddress}, ${arrangements[0].floor}. End time has not been specified.` },
   { id:'engagement', title:'Riya & Prashant — Engagement', start:'2026-12-02T10:30:00+05:30', location:maharajaAddress, description:`Engagement: 10:30 AM onwards IST. ${arrangements[2].venue}, ${arrangements[2].floor}. End time has not been specified.` },
   { id:'haldi', title:'Riya & Prashant — Haldi', start:'2026-12-02T16:00:00+05:30', location:maharajaAddress, description:`Haldi: 4:00 PM onwards IST. ${arrangements[3].venue}, ${arrangements[3].floor}. End time has not been specified.` },
 ];

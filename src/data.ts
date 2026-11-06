@@ -23,10 +23,13 @@ export const wedding = {
   gallery: [null, null, null] as (string | null)[],
 };
 
-// Confirmed celebration locations; the groom's residence has no supplied address.
+export const groomResidenceAddressLines = ['Row House C-06, Rai Town Society', 'Lokmanya Nagar, Hingna Road', 'Nagpur, Maharashtra – 440016'] as const;
+export const groomResidenceDirections = 'https://www.google.com/maps/dir/?api=1&destination=' + encodeURIComponent(groomResidenceAddressLines.join(', '));
+
+// Confirmed celebration locations.
 export const celebrationArrangements = [
   { label: "Bride's Mehendi", venue: 'Maharaja Celebrations', floor: 'Third Floor', locality: 'Wanadongri, Nagpur', directionsIndex: 0 },
-  { label: "Groom's Mehendi", venue: "Prashant's Residence", floor: '', locality: '', directionsIndex: null },
+  { label: "Groom's Mehendi", venue: "Prashant's Residence", floor: '', locality: groomResidenceAddressLines.join(', '), directionsIndex: null },
   { label: 'Engagement', venue: 'Maharaja Celebrations', floor: 'Second Floor', locality: 'Wanadongri, Nagpur', directionsIndex: 0 },
   { label: 'Haldi', venue: 'Maharaja Celebrations', floor: 'Ground Floor & Terrace', locality: 'Wanadongri, Nagpur', directionsIndex: 0 },
   { label: 'Wedding', venue: 'Maharaja Celebrations', floor: 'Ground Floor', locality: 'Wanadongri, Nagpur', directionsIndex: 0 },

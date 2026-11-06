@@ -425,7 +425,7 @@ button:focus-visible,summary:focus-visible{outline:2px solid #c6a15d;outline-off
 .book-city-list h3 { margin:6px 0 0; font:500 24px/1 'Cormorant Garamond',serif; color:#56182c; }.book-city-list p { margin:3px 0 0; font-style:italic; }
 .book-invitation .countdown-units { margin:25px auto; max-width:350px; }.book-invitation .countdown-number { font-size:clamp(32px,9vw,44px); }.book-invitation .countdown-label { font-size:9px; }
 .book-date { color:#865f3b; font:600 10px/1.5 'DM Sans',sans-serif; letter-spacing:.1em; text-transform:uppercase; }
-.book-disclosure { margin:25px auto 0; max-width:350px; border-top:1px solid #d0b78e; border-bottom:1px solid #d0b78e; }.book-disclosure summary { cursor:pointer; padding:14px; color:#56182c; font:600 11px 'DM Sans',sans-serif; letter-spacing:.12em; text-transform:uppercase; }.book-family { padding:0 4px 16px; }.book-family p { margin:16px 0; }.book-family h3 { color:#56182c; font:500 25px 'Cormorant Garamond',serif; margin:14px 0 2px; }
+.book-disclosure { margin:25px auto 0; max-width:350px; border-top:1px solid #d0b78e; border-bottom:1px solid #d0b78e; }.book-disclosure summary { cursor:pointer; padding:14px; color:#56182c; font:600 11px 'DM Sans',sans-serif; letter-spacing:.12em; text-transform:uppercase; }.book-family { padding:0 4px 16px; }.book-family p { margin:16px 0; }.book-family h3 { color:#56182c; font:400 36px/1.2 var(--font-romantic-script); margin:14px 0 2px; }
 .book-events { list-style:none; max-width:350px; margin:26px auto 0; padding:0 0 0 26px; border-left:1px solid #c6a15d; text-align:left; }.book-events li { position:relative; padding:0 0 24px; }.book-events li:last-child { padding-bottom:0; }.book-events li:before { content:'✦'; position:absolute; left:-33px; top:0; color:#b58c52; background:#f7ead9; font-size:14px; }.book-events p { margin:3px 0; }.book-event-date { color:#916a3b; font:600 10px/1.4 'DM Sans',sans-serif; letter-spacing:.07em; text-transform:uppercase; }.book-events h3 { color:#56182c; font:500 29px/1 'Cormorant Garamond',serif; margin:5px 0; }.book-event-tagline { font-style:italic; }
 .book-venue { max-width:350px; margin:26px auto 0; padding-bottom:24px; border-bottom:1px solid #d4bd9b; }.book-venue h3 { margin:8px 0; color:#56182c; font:500 27px/1.05 'Cormorant Garamond',serif; }.book-venue address { font-style:normal; }.book-venue p:not(.book-label) { margin:8px 0; }.book-direction { display:inline-block; margin:6px 0 12px; color:#56182c; font:600 11px 'DM Sans',sans-serif; text-transform:uppercase; letter-spacing:.08em; text-decoration:underline; text-underline-offset:4px; }.book-venues .calendar-control { margin:4px auto; color:#56182c; }.book-venues .calendar-control summary { justify-content:center; }.book-venues .calendar-options { color:#56182c; }.book-venues .share-invitation { margin:22px 0; }.book-venues .share-invitation button,.book-venues .share-invitation a { color:#56182c; }
 .book-epilogue { min-height:620px; display:flex; flex-direction:column; justify-content:center; }.book-epilogue-moon { font:70px/1 serif; color:#bd985d; margin:28px 0; }.book-signature { font:48px/1.2 var(--font-romantic-script); color:#56182c; margin:12px 0; }.book-signature span { color:#b18b57; font:italic 26px 'Cormorant Garamond',serif; }.book-blessing { margin:32px 0 0; color:#56182c; font-size:22px; }.book-gifts { text-transform:uppercase; color:#8e6d48; letter-spacing:.12em; font:10px 'DM Sans',sans-serif; }
@@ -478,6 +478,8 @@ button:focus-visible,summary:focus-visible{outline:2px solid #c6a15d;outline-off
 .book-cover-photo { padding:0 20px 19px; min-height:390px; background:#f2e1d3; }
 .book-photo-mat { position:absolute; inset:0 20px 20px; overflow:hidden; border:1px solid #c3a073; border-radius:48% 48% 2px 2px / 15% 15% 2px 2px; }
 .book-photo-mat img { object-position:center 53%; }
+.book-photo-mat img.cover-floral-overlay { inset:0 auto auto 50%; width:145%; max-width:none; height:auto; object-fit:contain; transform:translate(-50%,-4%); opacity:.68; pointer-events:none; -webkit-mask-image:radial-gradient(ellipse 24% 23% at 18% 18%,#000 32%,transparent 100%),radial-gradient(ellipse 24% 23% at 82% 18%,#000 32%,transparent 100%),radial-gradient(ellipse 12% 34% at 10% 40%,#000 18%,transparent 100%),radial-gradient(ellipse 12% 34% at 90% 40%,#000 18%,transparent 100%); mask-image:radial-gradient(ellipse 24% 23% at 18% 18%,#000 32%,transparent 100%),radial-gradient(ellipse 24% 23% at 82% 18%,#000 32%,transparent 100%),radial-gradient(ellipse 12% 34% at 10% 40%,#000 18%,transparent 100%),radial-gradient(ellipse 12% 34% at 90% 40%,#000 18%,transparent 100%); }
+.book-photo-mat img.cover-floral-arch { inset:0 0 auto; width:100%; height:auto; object-fit:contain; opacity:.68; pointer-events:none; }
 .book-cover-trail { top:28%; }
 .book-open { bottom:34px; box-shadow:0 4px 14px #35192340; }
 .keepsake-page h2 { font-size:clamp(42px,10vw,59px); }
@@ -695,6 +697,8 @@ html.storybook-document .storybook-preview { min-height:100vh; min-height:100dvh
 .celebration-direction { min-height:44px; display:inline-flex; align-items:center; }
 .celebration-details .calendar-control { margin:10px auto 0; color:#56182c; }
 .celebration-details .calendar-control summary { min-height:44px; display:inline-flex; align-items:center; justify-content:center; }
+.book-event-mehendi .celebration-venue .calendar-control { display:block; margin:0 auto; }
+.book-venue-page .venue-residence a { color:#56182c; text-decoration:underline; text-underline-offset:3px; }
 .venue-floor-list { border-top:1px solid #dfcbb1; border-bottom:1px solid #dfcbb1; padding:12px 0; margin:16px auto; }
 .venue-floor-list p:not(.book-label) { font-size:16px; line-height:1.35; margin:7px 0; }
 @media(min-width:768px) { .book-event-page { padding:28px 42px 24px; }.celebration-art { max-height:355px; } }
@@ -770,6 +774,11 @@ html.storybook-document .storybook-preview { min-height:100vh; min-height:100dvh
 .book-venue-page .venue-floor-list p span{text-align:right}
 .book-venue-page .venue-residence{font-size:15px;line-height:1.4;margin:14px auto}
 .book-venue-page .venue-actions{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:8px 20px;margin:14px 0}
+.book-venue-nagpur .venue-celebrations { margin:14px auto 8px; padding-top:12px; border-top:1px solid #d5b989; text-align:center; }
+.book-venue-nagpur .venue-celebrations .book-label { color:#906b43; font-size:10px; letter-spacing:.13em; }
+.book-venue-nagpur .venue-celebrations p + p { margin-top:7px; color:#56182c; font:18px/1.4 'Cormorant Garamond',serif; }
+.book-venue-nagpur .venue-celebrations span { display:inline-block; }
+.book-venue-nagpur .venue-celebrations i { color:#b88e53; font-style:normal; }
 
 .book-invitation-logo { display:block; width:min(270px, 86%); height:auto; margin:12px auto 16px; -webkit-mask-image:linear-gradient(to right, transparent, #000 5%, #000 95%, transparent), linear-gradient(to bottom, transparent, #000 2%, #000 98%, transparent); -webkit-mask-composite:source-in; mask-image:linear-gradient(to right, transparent, #000 5%, #000 95%, transparent), linear-gradient(to bottom, transparent, #000 2%, #000 98%, transparent); mask-composite:intersect; mix-blend-mode:multiply; }
 

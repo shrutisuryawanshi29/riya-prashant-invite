@@ -1,4 +1,4 @@
-import { wedding as w, celebrationArrangements } from '../data';
+import { wedding as w } from '../data';
 import { moments } from '../data/moments';
 import { WeddingCountdown } from '../components/WeddingCountdown';
 import { CalendarControls, ShareInvitation } from '../components/GuestControls';
@@ -53,8 +53,8 @@ export function VenuesChapter({venueIndex}:{venueIndex:0|1}) {
    <ScheduleBlock date={isWedding ? 'Thursday, 3 December 2026' : 'Sunday, 6 December 2026'} time={isWedding ? '10:15 AM IST' : '6:00 PM'} timeNote={isWedding ? 'Vivah Muhurat' : 'Onwards · IST'} programme={isWedding ? 'Programme begins · 9:00 AM' : undefined} extra={isWedding ? undefined : 'Followed by dinner'}/>
    <VenueArtworkSlot src={isWedding?'/images/venue-nagpur-watercolor.webp':'/images/venue-thane-watercolor.webp'}/>
    <address data-scroll-detail>{v.lines.map(line=><span key={line}>{line}<br/></span>)}</address>
-   {isWedding && <><div className="venue-floor-list" data-scroll-detail><p className="book-label">Celebration locations</p>{[celebrationArrangements[0],celebrationArrangements[2],celebrationArrangements[3],celebrationArrangements[4]].map(item=><p key={item.label}><strong>{item.label}</strong><span>{item.floor}</span></p>)}</div><p className="venue-residence" data-scroll-detail><strong>{celebrationArrangements[1].label}</strong> · {celebrationArrangements[1].venue}</p></>}
-   <div className="venue-actions"><a className="book-direction" href={'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(v.query)} target="_blank" rel="noreferrer">Get directions ↗</a><CalendarControls index={venueIndex}/></div>
+   {isWedding && <div className="venue-celebrations" data-scroll-detail><p className="book-label">Celebrations at this venue</p><p><span>Bride's Mehendi <i>·</i> Engagement</span> <i>·</i> <span>Haldi <i>·</i> Wedding</span></p></div>}
+   <div className="venue-actions"><a className="book-direction" href={'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(v.query)} target="_blank" rel="noreferrer">{isWedding ? 'Directions to Maharaja Celebrations ↗' : 'Get directions ↗'}</a><CalendarControls index={venueIndex}/></div>
   </section>
   {!isWedding && <ShareInvitation/>}
  </article>;

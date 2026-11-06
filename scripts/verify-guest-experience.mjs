@@ -8,9 +8,9 @@ const share = await import(compile(fs.readFileSync('src/utils/shareUtils.ts','ut
 assert.equal(calendar.utcStamp(calendar.calendarEvents[0].start),'20261203T033000Z');
 assert.equal(calendar.utcStamp(calendar.calendarEvents[1].start),'20261206T123000Z');
 assert.deepEqual(calendar.calendarEvents.slice(2).map(event => calendar.utcStamp(event.start)), ['20261201T054500Z','20261202T050000Z','20261202T103000Z']);
-assert.equal(calendar.calendarEvents[2].location, '');
+assert.match(calendar.calendarEvents[2].location, /Maharaja Celebrations/);
 assert.match(calendar.calendarEvents[2].description, /Bride's Mehendi:.*Third Floor/);
-assert.match(calendar.calendarEvents[2].description, /Groom's Mehendi: Prashant's Residence/);
+assert.doesNotMatch(calendar.calendarEvents[2].description, /Groom's Mehendi/);
 assert.match(calendar.calendarEvents[3].description, /Second Floor/);
 assert.match(calendar.calendarEvents[4].description, /Ground Floor & Terrace/);
 assert.match(calendar.calendarEvents[0].description, /Ground Floor/);
